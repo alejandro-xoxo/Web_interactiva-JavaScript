@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online</title>
+</head>
+<body>
+
+    <header>
+
+        <h1>Tienda Online</h1>
+
+        <button id="btn-carrito">
+            Carrito (0)
+        </button>
+
+    </header>
+
+    <main>
+
+        <section>
+
+            <h2>Buscar Productos</h2>
+
+            <input
+                type="search"
+                id="buscar-producto"
+                placeholder="Buscar producto..."
+            >
+
+        </section>
+
+        <section>
+
+            <h2>Categorías</h2>
+
+            <div id="filtros-categorias">
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Productos</h2>
+
+            <div id="contenedor-productos">
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <dialog id="modal-carrito">
+
+        <section>
+
+            <h2>Carrito de Compras</h2>
+
+            <div id="productos-carrito">
+
+            </div>
+
+            <p id="total-compra">
+                Total: $0
+            </p>
+
+            <button id="btn-comprar">
+                Comprar
+            </button>
+
+            <button id="btn-cerrar-carrito">
+                Cerrar
+            </button>
+
+        </section>
+
+    </dialog>
+
+</body>
+</html>

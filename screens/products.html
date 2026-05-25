@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
+    <title>AETHON | Inventario</title>
 </head>
 <body>
 
@@ -11,14 +11,14 @@
 
         <aside>
 
-            <h2>Panel Admin</h2>
+            <h2>AETHON [ CORE ]</h2>
 
             <nav>
-                <a href="./dashboard.html">Dashboard</a>
-                <a href="./categories.html">Categorías</a>
-                <a href="./products.html">Productos</a>
-                <a href="./orders.html">Pedidos</a>
-                <a href="./login.html" id="link-logout">Cerrar sesión</a> </nav>
+                <a href="./dashboard.html">Control Center</a>
+                <a href="./categories.html">Líneas de Diseño</a>
+                <a href="./products.html">Catálogo (SKUs)</a>
+                <a href="./orders.html">Operaciones</a>
+                <a href="./login.html" id="link-logout">Desconectar</a> </nav>
 
         </aside>
 
@@ -26,20 +26,20 @@
 
             <header>
 
-                <h1>Productos</h1>
+                <h1>Catálogo Maestro</h1>
 
                 <button id="btn-agregar-producto">
-                    Agregar producto
+                    REGISTRAR PIEZA [ + ]
                 </button>
 
             </header>
 
             <table id="table-productos"> <thead>
                     <tr>
-                        <th>Código</th>
-                        <th>Nombre</th>
-                        <th>Categoría</th>
-                        <th>Precio</th>
+                        <th>Lote (SKU)</th>
+                        <th>Denominación de la Pieza</th>
+                        <th>Línea</th>
+                        <th>Valor (COP)</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -54,30 +54,32 @@
 
                 <form id="form-producto">
 
-                    <h2>Nuevo Producto</h2>
+                    <h2>Nueva Pieza al Blueprint</h2>
 
                     <label for="codigo-producto">
-                        Código
+                        Código de Lote (SKU)
                     </label>
 
                     <input
                         type="text"
                         id="codigo-producto"
                         name="codigo-producto"
+                        placeholder="ej. AE-CORE-001"
                     >
 
                     <label for="nombre-producto">
-                        Nombre
+                        Denominación
                     </label>
 
                     <input
                         type="text"
                         id="nombre-producto"
                         name="nombre-producto"
+                        placeholder="Nombre exacto de la prenda"
                     >
 
                     <label for="categoria-producto">
-                        Categoría
+                        Línea de Diseño
                     </label>
 
                     <select
@@ -87,35 +89,38 @@
                     </select>
 
                     <label for="precio-producto">
-                        Precio
+                        Valor Unitario
                     </label>
 
                     <input
                         type="number"
                         id="precio-producto"
                         name="precio-producto"
+                        placeholder="0.00"
                     >
 
                     <label for="imagen-producto">
-                        URL Imagen
+                        Asset Visual (URL)
                     </label>
 
                     <input
                         type="url"
                         id="imagen-producto"
                         name="imagen-producto"
+                        placeholder="https://..."
                     >
 
                     <label for="descripcion-producto">
-                        Descripción
+                        Especificaciones Técnicas / GSM
                     </label>
 
                     <textarea
                         id="descripcion-producto"
                         name="descripcion-producto"
+                        placeholder="Detalles de tejido, fit, herrajes..."
                     ></textarea>
 
-                    <button type="submit" id="btn-guardar-producto"> Guardar Producto
+                    <button type="submit" id="btn-guardar-producto"> PUBLICAR PIEZA
                     </button>
 
                 </form>

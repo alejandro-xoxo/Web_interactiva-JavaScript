@@ -1,186 +1,170 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo-base);
+}
+
 main {
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    width: 100%;
-    padding: var(--space-4);
+    padding: var(--espacio-4);
     position: relative;
-    overflow: hidden;
-    background: var(--color-bg-overlay), var(--bg-company-image);
+    background-color: var(--color-fondo-base);
+    background-image:
+        linear-gradient(180deg, rgba(33, 21, 43, 0.7) 0%, rgba(11, 11, 12, 0.98) 100%),
+        url('../img/skater.webp');
     background-size: cover;
-    background-position: 20% center;
-    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1;
 }
 
-/* Orbita de luz central */
 main::before {
     content: '';
     position: absolute;
-    width: 50vw;
-    height: 50vw;
-    max-width: 600px;
-    max-height: 600px;
-    background: radial-gradient(circle, var(--color-purple-main) 0%, transparent 70%);
-    border-radius: 50%;
+    width: 70vw;
+    height: 70vh;
+    background: radial-gradient(circle, rgba(90, 62, 117, 0.25) 0%, transparent 65%);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    filter: blur(100px);
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
-    animation: pulseGlow 8s infinite alternate ease-in-out;
 }
 
-/* Componente Glass Card Limpio */
 section {
-    position: relative;
-    z-index: 1;
     width: 100%;
-    max-width: 400px;
-    background: var(--color-bg-surface);
-    backdrop-filter: var(--blur-glass);
-    -webkit-backdrop-filter: var(--blur-glass);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: var(--space-8) var(--space-6);
-    box-shadow: var(--shadow-glass);
-    animation: slideUp var(--transition-normal);
+    max-width: 420px;
+    background: rgba(33, 21, 43, 0.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--border-glow-subtle);
+    border-radius: var(--radio-lg);
+    padding: var(--espacio-10) var(--espacio-8);
+    box-shadow:
+        0 32px 64px rgba(0, 0, 0, 0.9),
+        inset 0 1px 0 rgba(147, 118, 179, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-8);
+    animation: slideUp var(--duracion-lenta) var(--curva-out-expo) both;
 }
 
 h1 {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-semibold);
+    font-family: var(--fuente-display);
+    font-size: var(--texto-xl);
+    font-weight: var(--grosor-bold);
+    color: var(--color-blanco);
     text-align: center;
-    margin-bottom: var(--space-8);
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #ffffff 0%, var(--color-purple-light) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    letter-spacing: var(--espaciado-letras-muy-amplio);
+    margin: 0;
+    line-height: var(--interlineado-ajustado);
+}
+
+h1::after {
+    content: 'ENGINEERED FOR AMBITION';
+    display: block;
+    font-family: var(--fuente-mono);
+    font-size: 9px;
+    color: var(--color-morado-300);
+    letter-spacing: 0.25em;
+    margin-top: var(--espacio-4);
+    font-weight: var(--grosor-semibold);
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--espacio-4);
 }
 
 label {
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    color: var(--color-text-secondary);
-    margin-bottom: calc(var(--space-2) * -0.5);
-    transition: color var(--transition-fast), transform var(--transition-fast);
-    transform-origin: left;
+    font-family: var(--fuente-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--color-morado-200);
+    letter-spacing: var(--espaciado-letras-mas-amplio);
+    margin-bottom: calc(var(--espacio-2) * -1);
+    font-weight: var(--grosor-semibold);
 }
-
 
 input {
     width: 100%;
-    padding: 0.75rem 1rem;
-    background: var(--color-input-bg);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: var(--radius-md);
-    color: var(--color-text-primary);
-    font-size: var(--text-base);
-    font-family: inherit;
-    transition: all var(--transition-bounce);
+    background: rgba(11, 11, 12, 0.6);
+    border: 1px solid var(--color-border-slate);
+    border-radius: var(--radio-md);
+    color: var(--color-blanco);
+    font-family: var(--fuente-cuerpo);
+    font-size: var(--texto-sm);
+    padding: var(--espacio-3) var(--espacio-4);
     outline: none;
-    transform: scale(1);
+    transition: all var(--duracion-rapida) var(--curva-out-expo);
+    box-sizing: border-box;
 }
 
 input::placeholder {
-    color: var(--color-text-secondary);
-    opacity: 0.5;
-    transition: opacity var(--transition-fast);
+    color: var(--color-gris-500);
 }
 
 input:hover {
-    border-color: var(--color-border-hover);
-    background: var(--color-input-bg-focus);
+    border-color: var(--color-morado-400);
 }
 
 input:focus {
-    background: var(--color-input-bg-focus);
-    border-color: var(--color-border-focus);
-    transform: scale(1.02);
-    box-shadow: 0 0 0 4px rgba(192, 132, 252, 0.15),
-        inset 0 0 12px rgba(124, 58, 237, 0.1);
-}
-
-input:focus::placeholder {
-    opacity: 0;
-}
-
-input:focus:not(:placeholder-shown)+label,
-input:focus~label {
-    color: var(--color-purple-light);
-    transform: translateX(4px);
+    border-color: var(--color-aethon-violet);
+    background: var(--color-deep-obsidian);
+    box-shadow:
+        0 0 0 1px var(--color-aethon-violet),
+        0 4px 16px rgba(90, 62, 117, 0.25);
 }
 
 button {
-    margin-top: var(--space-4);
+    margin-top: var(--espacio-4);
     width: 100%;
-    padding: 0.875rem 1rem;
-    background: linear-gradient(135deg, var(--color-purple-main) 0%, var(--color-purple-dark) 100%);
-    color: var(--color-text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: var(--radius-md);
-    font-size: var(--text-base);
-    font-weight: var(--font-medium);
+    background: var(--color-blanco);
+    color: var(--color-fondo-base);
+    border: none;
+    padding: var(--espacio-4);
+    border-radius: var(--radio-md);
+    font-family: var(--fuente-cuerpo);
+    font-size: var(--texto-sm);
+    font-weight: var(--grosor-bold);
+    letter-spacing: var(--espaciado-letras-amplio);
     cursor: pointer;
-    transition: all var(--transition-bounce);
-    box-shadow: var(--shadow-btn);
+    transition: all var(--duracion-rapida) var(--curva-out-expo);
+    box-sizing: border-box;
 }
 
 button:hover {
-    transform: translateY(-2px) scale(1.01);
-    box-shadow: var(--shadow-btn-hover);
-    border-color: var(--color-purple-light);
+    background: var(--color-morado-100);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(90, 62, 117, 0.4);
 }
 
 button:active {
-    transform: translateY(1px) scale(0.98);
-    box-shadow: 0 2px 8px 0 var(--color-purple-glow);
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(90, 62, 117, 0.4);
 }
 
 #login-message {
-    margin-top: var(--space-6);
     text-align: center;
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    min-height: 1.25rem;
+    font-size: var(--texto-xs);
+    font-family: var(--fuente-mono);
+    color: var(--color-peligro);
+    min-height: 1.5em;
+    margin: 0;
 }
 
-/* Animaciones */
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes pulseGlow {
-    0% {
-        opacity: 0.2;
-        transform: translate(-50%, -50%) scale(0.8);
-    }
-
-    100% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(1.2);
-    }
-}
-
-@media (min-width: 640px) {
+@media (max-width: 480px) {
     section {
-        padding: var(--space-10) var(--space-8);
+        padding: var(--espacio-8) var(--espacio-5);
+        border: none;
+        background: rgba(33, 21, 43, 0.7);
+    }
+
+    h1 {
+        font-size: var(--texto-lg);
     }
 }

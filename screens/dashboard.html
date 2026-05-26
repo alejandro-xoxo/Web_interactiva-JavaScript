@@ -1,81 +1,293 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHON | Studio Overview</title>
+    <title>Dashboard | AETHON Command Center</title>
+    
+    <meta name="robots" content="noindex, nofollow">
+    
     <link rel="stylesheet" href="../css/utils.css">
     <link rel="stylesheet" href="../css/dashboard.css">
 </head>
-<body class="content-container">
+<body class="admin-body">
 
-    <main class="app-layout">
+    <div class="dashboard-layout">
 
         <aside id="admin-sidebar" class="sidebar">
-            <div class="sidebar-logo">
-                <div class="sidebar-logo-mark">A</div>
-                <h2 class="sidebar-title">AETHON STUDIO</h2>
+            
+            <div class="sidebar__header">
+                <a href="../index.html" class="sidebar__brand">
+                    <h2>AETHON</h2>
+                    <span class="badge-admin">HQ / ADMIN</span>
+                </a>
             </div>
 
-            <nav class="sidebar-nav">
-                <a href="./dashboard.html" class="nav-link nav-link-active">Overview</a>
-                <a href="./categories.html" class="nav-link">Collections</a>
-                <a href="./products.html" class="nav-link">Inventory (Drops)</a>
-                <a href="./orders.html" class="nav-link">Orders & Fulfillment</a>
-                <a href="./login.html" id="link-logout" class="nav-link mt-auto" style="color: var(--color-peligro);">Sign Out</a> 
+            <nav class="sidebar__nav">
+                <ul id="sidebar-menu" class="sidebar__menu">
+                    <li class="active">
+                        <a href="dashboard.html" id="nav-dashboard">
+                            <span class="icon">⊞</span> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#categorias" id="nav-categories">
+                            <span class="icon">▤</span> Categorías
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#productos" id="nav-products">
+                            <span class="icon">▣</span> Productos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pedidos" id="nav-orders">
+                            <span class="icon">📄</span> Pedidos
+                        </a>
+                    </li>
+                </ul>
             </nav>
+
+            <div class="sidebar__footer">
+                <div class="admin-user-info">
+                    <span class="admin-avatar">A</span>
+                    <div class="admin-details">
+                        <span id="current-user-name" class="admin-name">Admin_01</span>
+                        <span id="current-user-role" class="admin-role">System Architect</span>
+                    </div>
+                </div>
+                <button id="btn-logout" class="btn-logout" aria-label="Cerrar sesión">
+                    <span class="icon">⏏</span> LOGOUT
+                </button>
+            </div>
+
         </aside>
 
-        <section class="main-content">
-            <header class="page-header">
-                <div class="page-header-inner items-center">
-                    <div>
-                        <h1 class="page-title">Overview</h1>
-                        <p id="text-bienvenida" class="page-description">Studio connected. Welcome back to AETHON.</p> 
-                    </div>
-                    <button id="mobile-menu-toggle" class="btn-icon btn-secondary hidden">≡</button>
+        <div class="main-wrapper">
+            
+            <header class="admin-topbar">
+                <div class="topbar-search">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="admin-search-input" class="input-dark input-sm" placeholder="Buscar pedidos, productos o clientes (CMD+K)">
+                </div>
+                <div class="topbar-actions">
+                    <button class="icon-btn" aria-label="Notificaciones" id="btn-notifications">
+                        🔔 <span class="notification-dot"></span>
+                    </button>
+                    <span id="system-time" class="system-time">00:00 UTC</span>
                 </div>
             </header>
 
-            <div id="dashboard-stats" class="grid-3 mb-6">
-                <article class="stat-card" id="stat-revenue">
-                    <span class="stat-card-label">Total Revenue</span>
-                    <p class="stat-card-value">$12.45M COP</p>
-                    <span class="stat-card-delta stat-card-delta--up">+15%</span>
-                </article>
-                <article class="stat-card" id="stat-orders">
-                    <span class="stat-card-label">Active Orders</span>
-                    <p class="stat-card-value">34</p>
-                </article>
-                <article class="stat-card" id="stat-alerts">
-                    <span class="stat-card-label">Low Stock Alerts</span>
-                    <p class="stat-card-value">2</p>
-                    <span class="stat-card-delta stat-card-delta--down">Void Hoodie</span>
-                </article>
-            </div>
-
-            <div class="grid-2">
-                <div id="recent-orders" class="card">
-                    <h2>Recent Fulfillment</h2>
-                    <ul class="activity-list" id="lista-actividad-pedidos">
-                        <li>Order AETH-1025 by Mateo R. - <span class="status packing">Packing</span></li>
-                        <li>Order AETH-1024 by Daniel T. - <span class="status shipped">Shipped</span></li>
-                    </ul>
-                </div>
+            <main id="dashboard-content" class="admin-main">
                 
-                <div id="top-selling" class="card">
-                    <h2>Top Selling Drops</h2>
-                    <ul class="activity-list" id="lista-top-ventas">
-                        <li>1. VOID HOODIE (Obsidian)</li>
-                        <li>2. STATIC CARGO (Olive)</li>
-                        <li>3. ARCHIVE DENIM (Washed)</li>
-                    </ul>
+                <div class="admin-page-header">
+                    <h1 class="page-title">RESUMEN DEL SISTEMA</h1>
+                    <div class="page-actions">
+                        <button id="btn-export-report" class="btn btn--outline btn--sm">EXPORTAR INFORME</button>
+                        <button id="btn-new-product" class="btn btn--primary btn--sm">+ NUEVO PRODUCTO</button>
+                    </div>
                 </div>
-            </div>
 
-        </section>
+                <section id="metrics-overview" class="metrics-grid">
+                    
+                    <div class="metric-card">
+                        <div class="metric-card__header">
+                            <h3 class="metric-title">INGRESOS TOTALES</h3>
+                            <span class="metric-trend positive">↑ 12.5%</span>
+                        </div>
+                        <p class="metric-value" id="metric-revenue-val">€ 45.230,00</p>
+                        <span class="metric-subtitle">Últimos 30 días</span>
+                    </div>
 
-    </main>
+                    <div class="metric-card">
+                        <div class="metric-card__header">
+                            <h3 class="metric-title">PEDIDOS ACTIVOS</h3>
+                            <span class="metric-trend positive">↑ 4.2%</span>
+                        </div>
+                        <p class="metric-value" id="metric-orders-val">142</p>
+                        <span class="metric-subtitle">Pendientes de envío</span>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-card__header">
+                            <h3 class="metric-title">PRODUCTOS</h3>
+                            <span class="metric-trend neutral">- 0.0%</span>
+                        </div>
+                        <p class="metric-value" id="metric-products-val">84</p>
+                        <span class="metric-subtitle">En catálogo</span>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-card__header">
+                            <h3 class="metric-title">VISITAS ÚNICAS</h3>
+                            <span class="metric-trend negative">↓ 1.8%</span>
+                        </div>
+                        <p class="metric-value" id="metric-visits-val">12.4K</p>
+                        <span class="metric-subtitle">Últimos 30 días</span>
+                    </div>
+
+                </section>
+
+                <div class="admin-grid-layout">
+                    
+                    <section id="recent-orders-section" class="admin-panel col-span-2">
+                        <div class="admin-panel__header">
+                            <h2>PEDIDOS RECIENTES</h2>
+                            <button id="btn-view-all-orders" class="btn-text">Ver todos &rarr;</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="admin-table" id="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID PEDIDO</th>
+                                        <th>CLIENTE</th>
+                                        <th>FECHA</th>
+                                        <th>ESTADO</th>
+                                        <th>TOTAL</th>
+                                        <th>ACCIÓN</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recent-orders-tbody">
+                                    <tr data-order-id="ORD-0992">
+                                        <td><strong>#ORD-0992</strong></td>
+                                        <td>K. Vang</td>
+                                        <td>26 May, 2026</td>
+                                        <td><span class="status-badge status-pending">Pendiente</span></td>
+                                        <td>€ 218,00</td>
+                                        <td><button class="icon-btn btn-view-order" aria-label="Ver detalles">👁</button></td>
+                                    </tr>
+                                    <tr data-order-id="ORD-0991">
+                                        <td><strong>#ORD-0991</strong></td>
+                                        <td>M. Rossi</td>
+                                        <td>25 May, 2026</td>
+                                        <td><span class="status-badge status-shipped">Enviado</span></td>
+                                        <td>€ 95,00</td>
+                                        <td><button class="icon-btn btn-view-order" aria-label="Ver detalles">👁</button></td>
+                                    </tr>
+                                    <tr data-order-id="ORD-0990">
+                                        <td><strong>#ORD-0990</strong></td>
+                                        <td>J. Doe</td>
+                                        <td>25 May, 2026</td>
+                                        <td><span class="status-badge status-delivered">Entregado</span></td>
+                                        <td>€ 340,00</td>
+                                        <td><button class="icon-btn btn-view-order" aria-label="Ver detalles">👁</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section id="top-products-section" class="admin-panel">
+                        <div class="admin-panel__header">
+                            <h2>INVENTARIO & TOP PRODUCTOS</h2>
+                            <button id="btn-view-inventory" class="icon-btn" aria-label="Ajustes">⚙</button>
+                        </div>
+                        <ul class="admin-list" id="top-products-list">
+                            <li class="admin-list__item" data-product-id="AET-002">
+                                <div class="item-visual">
+                                    <img src="../img/product-02-thumb1.jpg" alt="Cargo Jeans">
+                                </div>
+                                <div class="item-info">
+                                    <h4>AETHON CARGO JEANS</h4>
+                                    <p>Stock: <span class="text-warning">12 uds</span></p>
+                                </div>
+                                <div class="item-metrics">
+                                    <span>244 ventas</span>
+                                </div>
+                            </li>
+                            <li class="admin-list__item" data-product-id="AET-005">
+                                <div class="item-visual">
+                                    <img src="../img/product-05.jpg" alt="Void Hoodie">
+                                </div>
+                                <div class="item-info">
+                                    <h4>VOID HOODIE</h4>
+                                    <p>Stock: <span class="text-success">58 uds</span></p>
+                                </div>
+                                <div class="item-metrics">
+                                    <span>189 ventas</span>
+                                </div>
+                            </li>
+                            <li class="admin-list__item" data-product-id="AET-001">
+                                <div class="item-visual">
+                                    <img src="../img/product-01.jpg" alt="Chaos Zip">
+                                </div>
+                                <div class="item-info">
+                                    <h4>CHAOS ZIP HOODIE</h4>
+                                    <p>Stock: <span class="text-danger">0 uds</span></p>
+                                </div>
+                                <div class="item-metrics">
+                                    <span>156 ventas</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="categories-section" class="admin-panel">
+                        <div class="admin-panel__header">
+                            <h2>ESTADO DE CATEGORÍAS</h2>
+                        </div>
+                        <div class="categories-breakdown" id="categories-breakdown-container">
+                            
+                            <div class="category-stat">
+                                <div class="cat-stat-header">
+                                    <span>T-SHIRTS (34)</span>
+                                    <span>45%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="category-stat">
+                                <div class="cat-stat-header">
+                                    <span>HOODIES (28)</span>
+                                    <span>30%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 30%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="category-stat">
+                                <div class="cat-stat-header">
+                                    <span>CARGO PANTS (22)</span>
+                                    <span>15%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 15%;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="category-stat">
+                                <div class="cat-stat-header">
+                                    <span>ACCESORIOS (10)</span>
+                                    <span>10%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 10%;"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="panel-footer mt-4">
+                            <button id="btn-manage-categories" class="btn btn--outline btn--full-width">GESTIONAR CATEGORÍAS</button>
+                        </div>
+                    </section>
+
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/storage.js"></script>
+    <script src="../js/auth.js"></script>
+    
+    <script src="../js/app.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/categories.js"></script>
+    <script src="../js/orders.js"></script>
 
 </body>
 </html>

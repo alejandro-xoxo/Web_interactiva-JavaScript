@@ -3,177 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHON | Void Hoodie</title>
+    <title>AETHON Cargo Jeans | AETHON</title>
+    
+    <meta name="description" content="Pantalón cargo oversize confeccionado en denim pesado de alta densidad. Detalles metálicos y diseño utilitario.">
+    
     <link rel="stylesheet" href="../css/utils.css">
     <link rel="stylesheet" href="../css/product-detail.css">
-    <link rel="stylesheet" href="../css/index.css">
 </head>
-<body class="content-container">
+<body>
 
-    <header id="main-navigation" class="site-header">
-        <div class="header-container">
-            <a href="../index.html" style="text-decoration: none; color: inherit;"><h1 class="brand-logo">AETHON</h1></a>
-            <nav class="public-nav">
-                <a href="../index.html#section-productos">Latest Drops</a>
-                <a href="../index.html#section-categorias">Collections</a>
-                <a href="../index.html#newsletter-form">Community</a>
-                <a href="./login.html" class="nav-staff">Staff</a>
-            </nav>
-            <a href="./cart.html" style="text-decoration: none;">
-                <button id="btn-carrito" class="btn-cart">
-                    BAG (2)
-                </button>
+    <div id="top-bar" class="top-bar">
+        <p class="top-bar__text">ENVÍOS GRATIS EN TODOS LOS PEDIDOS</p>
+    </div>
+
+    <header id="main-header" class="header">
+        <div class="header__container container">
+            
+            <a href="../index.html" class="header__logo">
+                <h1>AETHON</h1>
             </a>
+            
+            <nav id="main-nav" class="header__nav">
+                <ul class="header__menu">
+                    <li><a href="../index.html">INICIO</a></li>
+                    <li class="active"><a href="products.html">COLECCIÓN</a></li>
+                    <li><a href="categories.html">CATEGORÍAS</a></li>
+                    <li><a href="../index.html#brand-story">ACERCA DE</a></li>
+                    <li><a href="#footer">CONTACTO</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__actions">
+                <button id="nav-search-btn" class="header__icon-btn" aria-label="Buscar"><span>🔍</span></button>
+                <a href="login.html" id="nav-login-btn" class="header__icon-btn" aria-label="Cuenta"><span>👤</span></a>
+                <a href="cart.html" id="nav-cart-btn" class="header__icon-btn" aria-label="Carrito"><span>🛍️ (0)</span></a>
+            </div>
+
         </div>
     </header>
 
-    <main class="main-content product-detail-layout">
-        <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
-            
-            <nav class="breadcrumb" style="margin-bottom: 2rem;">
-                <a href="../index.html" class="breadcrumb-item" style="color: var(--color-muted); text-decoration: none;">Home</a>
-                <span class="breadcrumb-separator" style="margin: 0 0.5rem; color: var(--color-muted);">/</span>
-                <a href="../index.html#section-categorias" class="breadcrumb-item" style="color: var(--color-muted); text-decoration: none;">Heavyweight Hoodies</a>
-                <span class="breadcrumb-separator" style="margin: 0 0.5rem; color: var(--color-muted);">/</span>
-                <span class="breadcrumb-item breadcrumb-item--active" style="color: var(--color-blanco);">Void Hoodie</span>
+    <main id="main-content">
+
+        <div class="breadcrumb-container container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><span class="separator">></span></li>
+                    <li><a href="products.html">Colección</a></li>
+                    <li><span class="separator">></span></li>
+                    <li><a href="categories.html#cargo-pants">Cargo Pants</a></li>
+                    <li><span class="separator">></span></li>
+                    <li aria-current="page">AETHON Cargo Jeans</li>
+                </ol>
             </nav>
+        </div>
 
-            <article class="product-detail-container">
+        <section id="product-overview" class="product-overview section-padding container">
+            <div class="product-layout-split">
                 
-                <section class="product-gallery">
-                    <img
-                        src="../img/1.png"
-                        alt="Void Hoodie"
-                        id="imagen-producto"
-                        class="main-product-image"
-                    >
-                    <div class="gallery-thumbnails">
-                        <img src="../img/1.png" alt="Thumbnail 1" class="thumbnail">
-                        <img src="../img/4.png" alt="Thumbnail 2" class="thumbnail">
-                        <img src="../img/5.png" alt="Thumbnail 3" class="thumbnail">
-                    </div>
-                </section>
-
-                <section class="product-info-panel">
-                    <h1 id="nombre-producto" class="product-title">
-                        VOID HOODIE
-                    </h1>
-
-                    <p id="precio-producto" class="product-price-large">
-                        $320.000 COP
-                    </p>
-
-                    <div class="product-options">
-                        <div class="option-group">
-                            <label>Color</label>
-                            <div id="color-selectors" class="color-swatches">
-                                <button class="swatch active" style="background-color: #0A0510;" title="Obsidian"></button>
-                                <button class="swatch" style="background-color: #48484a;" title="Ash Grey"></button>
-                            </div>
-                        </div>
-
-                        <div class="option-group">
-                            <label>Size</label>
-                            <div id="size-selectors" class="size-selector">
-                                <button class="size-btn">S</button>
-                                <button class="size-btn active">M</button>
-                                <button class="size-btn">L</button>
-                                <button class="size-btn">XL</button>
-                            </div>
-                        </div>
-
-                        <div class="option-group">
-                            <label for="qty-input">Quantity</label>
-                            <input type="number" id="qty-input" class="input input-qty" value="1" min="1" max="10" style="width: 80px;">
-                        </div>
+                <div class="product-gallery">
+                    <div id="gallery-thumbnails" class="gallery-thumbnails">
+                        <button class="thumbnail-btn active"><img src="../img/product-02-thumb1.jpg" alt="Vista frontal"></button>
+                        <button class="thumbnail-btn"><img src="../img/product-02-thumb2.jpg" alt="Vista lateral"></button>
+                        <button class="thumbnail-btn"><img src="../img/product-02-thumb3.jpg" alt="Vista trasera"></button>
+                        <button class="thumbnail-btn"><img src="../img/product-02-thumb4.jpg" alt="Detalle bolsillo"></button>
+                        <button class="thumbnail-btn"><img src="../img/product-02-thumb5.jpg" alt="Detalle cadenas"></button>
+                        <button class="thumbnail-scroll-down" aria-label="Ver más imágenes">∨</button>
                     </div>
 
-                    <div class="product-description-box">
-                        <p id="descripcion-producto">
-                            Oversized fit heavyweight hoodie. 400GSM French Terry cotton. Drop shoulder architecture with distressed details and distressed hem. High-density puff print on front and back. Pre-shrunk for zero shrinkage.
-                        </p>
-                        <ul class="product-features">
-                            <li>100% Cotton (400GSM)</li>
-                            <li>Boxy, oversized silhouette</li>
-                            <li>Custom AETHON metal hardware</li>
-                            <li>Designed in Bogotá</li>
-                        </ul>
-                    </div>
-
-                    <button id="btn-agregar-carrito" class="btn-add-cart">
-                        ADD TO BAG
-                    </button>
-
-                    <div class="product-meta">
-                        <p>Status: <span class="stock-status in-stock">In Stock - Ready to Ship</span></p>
-                    </div>
-                </section>
-
-            </article>
-
-            <section id="related-products" class="related-section">
-                <h2>Complete the Fit</h2>
-                <div class="product-grid mini-grid">
-                    <div class="product-card">
-                        <a href="./product-detail.html" style="text-decoration: none; color: inherit;">
-                            <div class="product-image-wrapper">
-                                <img src="../img/2.png" alt="Static Cargo" class="product-img">
-                            </div>
-                            <div class="product-info">
-                                <h3>STATIC CARGO</h3>
-                                <p class="product-category">Cargo Pants</p>
-                                <p class="product-price">$280.000 COP</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="product-card">
-                        <a href="./product-detail.html" style="text-decoration: none; color: inherit;">
-                            <div class="product-image-wrapper">
-                                <img src="../img/3.png" alt="Reaper Tee" class="product-img">
-                            </div>
-                            <div class="product-info">
-                                <h3>REAPER OVERSIZED TEE</h3>
-                                <p class="product-category">Oversized Tees</p>
-                                <p class="product-price">$140.000 COP</p>
-                            </div>
-                        </a>
+                    <div class="gallery-main">
+                        <img id="main-product-image" src="../img/product-02-large.jpg" alt="AETHON Cargo Jeans Principal">
+                        <button id="btn-zoom-image" class="btn-zoom" aria-label="Ampliar imagen">⊕</button>
                     </div>
                 </div>
-            </section>
-        </div>
+
+                <div class="product-info" id="product-data" data-product-id="AET-002">
+                    
+                    <span class="product-info__category">CARGO PANTS</span>
+                    <h1 class="product-info__title">AETHON CARGO JEANS</h1>
+                    
+                    <div class="product-info__price-reviews">
+                        <span class="price">€109,00</span>
+                        <div class="reviews">
+                            <span class="stars">★★★★★</span>
+                            <span class="review-count">(87)</span>
+                        </div>
+                    </div>
+
+                    <p class="product-info__description">
+                        Pantalón cargo oversize confeccionado en denim pesado de alta densidad. Lavado desgastado a mano con detalles metálicos, cadenas removibles y múltiples bolsillos utilitarios. Diseñado para resistir. Creado para destacar.
+                    </p>
+
+                    <ul class="product-info__features">
+                        <li><span class="icon">☼</span> Fit oversize extremo</li>
+                        <li><span class="icon">☼</span> Tejido 100% algodón premium</li>
+                        <li><span class="icon">☼</span> Detalles metálicos en níquel oscuro</li>
+                        <li><span class="icon">☼</span> Acabado vintage lavado a mano</li>
+                        <li><span class="icon">☼</span> Edición limitada</li>
+                    </ul>
+
+                    <div class="selector-group" id="color-selector">
+                        <span class="selector-label">COLOR: <span id="selected-color-name">NEGRO</span></span>
+                        <div class="color-options">
+                            <button class="color-btn active" data-color="negro" aria-label="Negro" style="background-color: #000;"></button>
+                            <button class="color-btn" data-color="gris" aria-label="Gris Desgastado" style="background-color: #333;"></button>
+                            <button class="color-btn color-pattern" data-color="void" aria-label="Void Pattern">
+                                <img src="../img/swatch-void.jpg" alt="Void">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="selector-group" id="size-selector">
+                        <span class="selector-label">TALLA: <span id="selected-size-name">M</span></span>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="XS">XS</button>
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn active" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn" data-size="XL">XL</button>
+                            <button class="size-btn" data-size="XXL">XXL</button>
+                        </div>
+                        <button class="btn-text size-guide-btn" id="btn-size-guide">📏 Guía de tallas</button>
+                    </div>
+
+                    <div class="product-actions">
+                        <button id="btn-add-to-cart" class="btn btn--primary btn--full-width">
+                            <span>🛍️</span> AÑADIR AL CARRITO
+                        </button>
+                        <button id="btn-add-wishlist" class="btn-wishlist-large" aria-label="Añadir a lista de deseos">♡</button>
+                    </div>
+
+                    <div class="shipping-notice">
+                        <span class="icon">🚚</span> Envío gratis en pedidos superiores a €80
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-badges container">
+            <div class="trust-badges__grid">
+                <div class="trust-item">
+                    <span class="trust-icon">🚚</span>
+                    <div class="trust-text">
+                        <h4>ENVÍOS</h4>
+                        <p>1-3 días laborables<br>En todo el mundo</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">↻</span>
+                    <div class="trust-text">
+                        <h4>DEVOLUCIONES</h4>
+                        <p>30 días para cambios<br>Devoluciones fáciles</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">🔒</span>
+                    <div class="trust-text">
+                        <h4>PAGO SEGURO</h4>
+                        <p>SSL cifrado<br>Tarjetas y PayPal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="product-tabs" class="product-tabs-section container">
+            <div class="tabs-layout">
+                
+                <aside class="tabs-nav" id="tabs-navigation">
+                    <button class="tab-btn active" data-target="desc">DESCRIPCIÓN</button>
+                    <button class="tab-btn" data-target="specs">ESPECIFICACIONES</button>
+                    <button class="tab-btn" data-target="shipping">ENVÍO Y DEVOLUCIONES</button>
+                    <button class="tab-btn" data-target="care">CUIDADO</button>
+                    <button class="tab-btn" data-target="collection">COLECCIÓN</button>
+                </aside>
+
+                <div class="tabs-content-area" id="tabs-content">
+                    <div class="tab-panel active" id="tab-desc">
+                        <p class="tab-text">
+                            Inspirado en el caos urbano y la estética underground. Cada costura, cada cadena y cada remache cuentan la historia de AETHON: libertad sin reglas. Este pantalón no sigue tendencias, las rompe.
+                        </p>
+                        <div class="tab-image-full">
+                            <img src="../img/product-detail-banner.jpg" alt="Detalle de texturas y cadenas del Aethon Cargo Jeans" class="img-cover">
+                        </div>
+                    </div>
+                    </div>
+
+            </div>
+        </section>
+
+        <section id="related-products" class="related-products-section container section-padding">
+            <div class="section-header split-header">
+                <h2 class="section-title">TAMBIÉN TE PUEDE INTERESAR</h2>
+                <a href="products.html" class="link-all">VER COLECCIÓN &rarr;</a>
+            </div>
+            
+            <div class="products-grid grid-4-cols" id="related-products-grid">
+                
+                <article class="product-card" data-product-id="AET-005">
+                    <div class="product-card__image-wrapper">
+                        <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
+                        <a href="product-detail.html?id=AET-005">
+                            <img src="../img/product-05.jpg" alt="Void Hoodie" class="product-card__img">
+                        </a>
+                    </div>
+                    <div class="product-card__info">
+                        <h3 class="product-card__name"><a href="product-detail.html?id=AET-005">VOID HOODIE</a></h3>
+                        <p class="product-card__price">€95,00</p>
+                    </div>
+                </article>
+
+                <article class="product-card" data-product-id="AET-009">
+                    <div class="product-card__image-wrapper">
+                        <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
+                        <a href="product-detail.html?id=AET-009">
+                            <img src="../img/product-09.jpg" alt="Setdow Oversize Tee" class="product-card__img">
+                        </a>
+                    </div>
+                    <div class="product-card__info">
+                        <h3 class="product-card__name"><a href="product-detail.html?id=AET-009">SETDOW OVERSIZE TEE</a></h3>
+                        <p class="product-card__price">€49,00</p>
+                    </div>
+                </article>
+
+                <article class="product-card" data-product-id="AET-004">
+                    <div class="product-card__image-wrapper">
+                        <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
+                        <a href="product-detail.html?id=AET-004">
+                            <img src="../img/product-04.jpg" alt="Aethon Jacket" class="product-card__img">
+                        </a>
+                    </div>
+                    <div class="product-card__info">
+                        <h3 class="product-card__name"><a href="product-detail.html?id=AET-004">AETHON JACKET</a></h3>
+                        <p class="product-card__price">€129,00</p>
+                    </div>
+                </article>
+
+                <article class="product-card" data-product-id="AET-008">
+                    <div class="product-card__image-wrapper">
+                        <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
+                        <a href="product-detail.html?id=AET-008">
+                            <img src="../img/product-08.jpg" alt="Aethon Cap" class="product-card__img">
+                        </a>
+                    </div>
+                    <div class="product-card__info">
+                        <h3 class="product-card__name"><a href="product-detail.html?id=AET-008">AETHON CAP</a></h3>
+                        <p class="product-card__price">€35,00</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
     </main>
 
-    <footer id="footer-links" class="site-footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <h3>AETHON</h3>
-                <p>Experimental Streetwear.</p>
-                <p>Bogotá, Colombia.</p>
+    <footer id="footer" class="footer">
+        <div class="container footer__container">
+            <div class="footer__grid grid-5-cols">
+                
+                <div class="footer__col brand-col col-span-2">
+                    <h3 class="footer__logo">AETHON</h3>
+                    <p class="footer__slogan">No es solo ropa. Es una identidad.<br>Diseñado para quienes desafían lo común.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="TikTok">TK</a>
+                        <a href="#" aria-label="YouTube">YT</a>
+                        <a href="#" aria-label="X (Twitter)">X</a>
+                    </div>
+                </div>
+
+                <div class="footer__col">
+                    <h4 class="footer__heading">TIENDA</h4>
+                    <ul class="footer__links">
+                        <li><a href="products.html">Todos los productos</a></li>
+                        <li><a href="categories.html#hoodies">Hoodies</a></li>
+                        <li><a href="categories.html#tshirts">T-Shirts</a></li>
+                        <li><a href="categories.html#cargo">Cargo Pants</a></li>
+                        <li><a href="categories.html#denim">Denim</a></li>
+                        <li><a href="categories.html#accesorios">Accesorios</a></li>
+                        <li><a href="products.html?filter=new">Nueva Colección</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h4 class="footer__heading">INFORMACIÓN</h4>
+                    <ul class="footer__links">
+                        <li><a href="../index.html#brand-story">Acerca de</a></li>
+                        <li><a href="#">Envíos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h4 class="footer__heading">CUENTA</h4>
+                    <ul class="footer__links">
+                        <li><a href="dashboard.html">Mi cuenta</a></li>
+                        <li><a href="orders.html">Mis pedidos</a></li>
+                        <li><a href="#">Lista de deseos</a></li>
+                        <li><a href="#">Direcciones</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col newsletter-col col-span-2">
+                    <h4 class="footer__heading">NEWSLETTER</h4>
+                    <p class="footer__desc">Suscríbete y recibe ofertas exclusivas y lanzamientos.</p>
+                    <form class="footer__newsletter-form">
+                        <div class="input-with-btn">
+                            <input type="email" placeholder="Tu email" required class="input-dark">
+                            <button type="submit" aria-label="Enviar">&rarr;</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
-            <div class="footer-nav">
-                <h4>Explore</h4>
-                <a href="../index.html#section-productos">Shop</a>
-                <a href="../index.html#section-categorias">Collections</a>
-                <a href="#">Archive</a>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2026 AETHON. TODOS LOS DERECHOS RESERVADOS.</p>
             </div>
-            <div class="footer-support">
-                <h4>Support</h4>
-                <a href="#">FAQ</a>
-                <a href="#">Shipping & Returns</a>
-                <a href="#">Contact</a>
-            </div>
-            <div class="footer-social">
-                <h4>Community</h4>
-                <a href="#">Instagram @aethonwear</a>
-                <a href="#">TikTok @aethonwear</a>
-                <a href="#">Discord Community</a>
-                <a href="mailto:contact@aethonwear.com">contact@aethonwear.com</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 AETHON. All rights reserved.</p>
         </div>
     </footer>
 
+    <div id="cart-modal-container"></div>
+    <div id="size-guide-modal-container"></div>
+
+    <script src="../js/storage.js"></script>
+    <script src="../js/auth.js"></script>
+    
+    <script src="../components/navbar.js"></script>
+    <script src="../components/product-card.js"></script>
+    <script src="../components/modal-cart.js"></script>
+    
+    <script src="../js/app.js"></script>
+    <script src="../js/product-detail.js"></script>
+    
 </body>
 </html>

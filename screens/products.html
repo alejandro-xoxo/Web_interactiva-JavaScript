@@ -3,132 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHON | Inventory</title>
+    <title>Colección | AETHON</title>
+    
+    <meta name="description" content="Explora la colección completa de AETHON. Streetwear premium, prendas utilitarias y diseño de vanguardia.">
+    
     <link rel="stylesheet" href="../css/utils.css">
     <link rel="stylesheet" href="../css/products.css">
 </head>
-<body class="content-container">
+<body>
 
-    <main class="app-layout">
+    <div id="top-bar" class="top-bar">
+        <p class="top-bar__text">ENVÍOS GRATIS EN TODOS LOS PEDIDOS</p>
+    </div>
 
-        <aside id="admin-sidebar" class="sidebar">
-            <div class="sidebar-logo">
-                <div class="sidebar-logo-mark">A</div>
-                <h2 class="sidebar-title">AETHON STUDIO</h2>
-            </div>
+    <header id="main-header" class="header">
+        <div class="header__container container">
             
-            <nav class="sidebar-nav">
-                <a href="./dashboard.html" class="nav-link">Overview</a>
-                <a href="./categories.html" class="nav-link">Collections</a>
-                <a href="./products.html" class="nav-link nav-link-active">Inventory (Drops)</a>
-                <a href="./orders.html" class="nav-link">Orders & Fulfillment</a>
-                <a href="./login.html" id="link-logout" class="nav-link mt-auto" style="color: var(--color-peligro);">Sign Out</a> 
+            <a href="../index.html" class="header__logo">
+                <h1>AETHON</h1>
+            </a>
+            
+            <nav id="main-nav" class="header__nav">
+                <ul class="header__menu">
+                    <li><a href="../index.html">INICIO</a></li>
+                    <li class="active"><a href="products.html">COLECCIÓN</a></li>
+                    <li><a href="categories.html">CATEGORÍAS</a></li>
+                    <li><a href="../index.html#brand-story">ACERCA DE</a></li>
+                    <li><a href="#footer">CONTACTO</a></li>
+                </ul>
             </nav>
-        </aside>
 
-        <section class="main-content">
+            <div class="header__actions">
+                <button id="nav-search-btn" class="header__icon-btn" aria-label="Buscar">
+                    <span>🔍</span>
+                </button>
+                <a href="login.html" id="nav-login-btn" class="header__icon-btn" aria-label="Cuenta">
+                    <span>👤</span>
+                </a>
+                <a href="cart.html" id="nav-cart-btn" class="header__icon-btn" aria-label="Carrito">
+                    <span>🛍️ (0)</span>
+                </a>
+            </div>
 
-            <header class="page-header">
-                <div class="page-header-inner items-center">
-                    <div>
-                        <h1 class="page-title">Inventory & Drops</h1>
-                        <p class="page-description">Manage physical catalog, stock, and pricing.</p>
-                    </div>
-                    <button id="btn-agregar-producto" class="btn btn-primary" onclick="document.getElementById('modal-producto').showModal()">
-                        ADD NEW DROP
-                    </button>
-                    <button id="mobile-menu-toggle" class="btn-icon btn-secondary hidden">≡</button>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="collection-hero">
+            <div class="collection-hero__bg">
+                <img src="../img/banner-01.jpg" alt="AETHON Colección 2026" class="img-cover">
+            </div>
+            <div class="collection-hero__content container">
+                <span class="collection-hero__subtitle">NUEVA COLECCIÓN 2026</span>
+                <h2 class="collection-hero__title">BEYOND ORDINARY</h2>
+                <a href="#products-grid" class="btn btn--outline">DESCUBRE LA COLECCIÓN</a>
+            </div>
+        </section>
+
+        <div class="breadcrumb-container container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><span class="separator">></span></li>
+                    <li><a href="products.html">Colección</a></li>
+                    <li><span class="separator">></span></li>
+                    <li aria-current="page">Todos los productos</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="catalog-section container split-layout-sidebar">
+            
+            <aside class="sidebar-filters" id="category-filter">
+                <div class="filter-header">
+                    <h3>FILTRAR POR</h3>
                 </div>
-            </header>
 
-            <div class="table-filters mb-4">
-                <input type="text" id="filter-productos-input" placeholder="Search by SKU or name..." class="input" style="max-width: 320px;">
+                <div class="filter-group">
+                    <h4 class="filter-group__title">CATEGORÍAS</h4>
+                    <ul class="filter-list">
+                        <li><a href="#" class="filter-link">Hoodies <span class="count">(28)</span></a></li>
+                        <li><a href="#" class="filter-link">T-Shirts <span class="count">(34)</span></a></li>
+                        <li><a href="#" class="filter-link">Cargo Pants <span class="count">(22)</span></a></li>
+                        <li><a href="#" class="filter-link">Denim <span class="count">(18)</span></a></li>
+                        <li><a href="#" class="filter-link">Accesorios <span class="count">(10)</span></a></li>
+                        <li><a href="#" class="filter-link">Nueva Colección <span class="count">(8)</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="filter-group">
+                    <h4 class="filter-group__title">TALLA</h4>
+                    <ul class="filter-list filter-list--checkboxes">
+                        <li>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="size" value="xs">
+                                <span class="checkbox-custom"></span> XS <span class="count">(12)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="size" value="s">
+                                <span class="checkbox-custom"></span> S <span class="count">(34)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="size" value="m">
+                                <span class="checkbox-custom"></span> M <span class="count">(58)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="size" value="l">
+                                <span class="checkbox-custom"></span> L <span class="count">(58)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="size" value="xl">
+                                <span class="checkbox-custom"></span> XL <span class="count">(34)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="size" value="xxl">
+                                <span class="checkbox-custom"></span> XXL <span class="count">(16)</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="filter-group">
+                    <h4 class="filter-group__title">COLOR</h4>
+                    <div class="color-swatches">
+                        <button class="swatch bg-black" aria-label="Negro"></button>
+                        <button class="swatch bg-dark-grey" aria-label="Gris Oscuro"></button>
+                        <button class="swatch bg-cement" aria-label="Cemento"></button>
+                        <button class="swatch bg-purple" aria-label="Morado"></button>
+                        <button class="swatch bg-off-white" aria-label="Blanco Roto"></button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4 class="filter-group__title">PRECIO</h4>
+                    <div class="price-slider-container">
+                        <div class="slider-track">
+                            <div class="slider-range"></div>
+                            <div class="slider-handle left"></div>
+                            <div class="slider-handle right"></div>
+                        </div>
+                        <div class="price-labels">
+                            <span>€0</span>
+                            <span>€200</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="catalog-main">
+                
+                <div class="catalog-toolbar">
+                    <div class="toolbar-search">
+                        <div class="search-input-wrapper">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" id="search-input" placeholder="Buscar productos..." class="input-dark">
+                        </div>
+                        <span class="results-count">120 resultados encontrados</span>
+                    </div>
+                    
+                    <div class="toolbar-sort">
+                        <label for="sort-filter">Ordenar por:</label>
+                        <select id="sort-filter" class="select-dark">
+                            <option value="destacados">Destacados</option>
+                            <option value="precio-asc">Precio: Menor a Mayor</option>
+                            <option value="precio-desc">Precio: Mayor a Menor</option>
+                            <option value="nuevos">Nuevos Lanzamientos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="products-grid" class="products-grid grid-4-cols">
+                    
+                    <article class="product-card" data-product-id="AET-001">
+                        <div class="product-card__image-wrapper">
+                            <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
+                            <a href="product-detail.html">
+                                <img src="../img/product-01.jpg" alt="Chaos Zip Hoodie" class="product-card__img">
+                            </a>
+                        </div>
+                        <div class="product-card__info">
+                            <h3 class="product-card__name"><a href="product-detail.html">CHAOS ZIP HOODIE</a></h3>
+                            <p class="product-card__price">€89,00</p>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="AET-002">
+                        <div class="product-card__image-wrapper">
+                            <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
+                            <a href="product-detail.html">
+                                <img src="../img/product-02.jpg" alt="Aethon Cargo Jeans" class="product-card__img">
+                            </a>
+                        </div>
+                        <div class="product-card__info">
+                            <h3 class="product-card__name"><a href="product-detail.html">AETHON CARGO JEANS</a></h3>
+                            <p class="product-card__price">€109,00</p>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="AET-003">
+                        <div class="product-card__image-wrapper">
+                            <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
+                            <a href="product-detail.html">
+                                <img src="../img/product-03.jpg" alt="Shadow Oversize Tee" class="product-card__img">
+                            </a>
+                        </div>
+                        <div class="product-card__info">
+                            <h3 class="product-card__name"><a href="product-detail.html">SHADOW OVERSIZE TEE</a></h3>
+                            <p class="product-card__price">€49,00</p>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="AET-004">
+                        <div class="product-card__image-wrapper">
+                            <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
+                            <a href="product-detail.html">
+                                <img src="../img/product-04.jpg" alt="Aethon Jacket" class="product-card__img">
+                            </a>
+                        </div>
+                        <div class="product-card__info">
+                            <h3 class="product-card__name"><a href="product-detail.html">AETHON JACKET</a></h3>
+                            <p class="product-card__price">€129,00</p>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="AET-005">
+                        <div class="product-card__image-wrapper">
+                            <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
+                            <a href="product-detail.html">
+                                <img src="../img/product-05.jpg" alt="Void Hoodie" class="product-card__img">
+                            </a>
+                        </div>
+                        <div class="product-card__info">
+                            <h3 class="product-card__name"><a href="product-detail.html">VOID HOODIE</a></h3>
+                            <p class="product-card__price">€95,00</p>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="AET-006">
+                        <div class="product-card__image-wrapper">
+                            <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
+                            <a href="product-detail.html">
+                                <img src="../img/product-06.jpg" alt="Abyss Tee" class="product-card__img">
+                            </a>
+                        </div>
+                        <div class="product-card__info">
+                            <h3 class="product-card__name"><a href="product-detail.html">ABYSS TEE</a></h3>
+                            <p class="product-card__price">€45,00</p>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="AET-007">
+                        <div class="product-card__image-wrapper">
+                            <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
+                            <a href="product-detail.html">
+                                <img src="../img/product-07.jpg" alt="Phantom Cargo Pants" class="product-card__img">
+                            </a>
+                        </div>
+                        <div class="product-card__info">
+                            <h3 class="product-card__name"><a href="product-detail.html">PHANTOM CARGO PANTS</a></h3>
+                            <p class="product-card__price">€119,00</p>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-product-id="AET-008">
+                        <div class="product-card__image-wrapper">
+                            <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
+                            <a href="product-detail.html">
+                                <img src="../img/product-08.jpg" alt="Aethon Cap" class="product-card__img">
+                            </a>
+                        </div>
+                        <div class="product-card__info">
+                            <h3 class="product-card__name"><a href="product-detail.html">AETHON CAP</a></h3>
+                            <p class="product-card__price">€35,00</p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="pagination">
+                    <button class="pagination__btn" disabled>&larr;</button>
+                    <button class="pagination__page active">1</button>
+                    <button class="pagination__page">2</button>
+                    <button class="pagination__page">3</button>
+                    <span class="pagination__dots">...</span>
+                    <button class="pagination__page">8</button>
+                    <button class="pagination__btn">&rarr;</button>
+                </div>
             </div>
 
-            <div class="table-container">
-                <table class="admin-table" id="table-productos"> 
-                    <thead>
-                        <tr>
-                            <th>SKU</th>
-                            <th>Piece Name</th>
-                            <th>Collection</th>
-                            <th>Price (COP)</th>
-                            <th>Stock</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="lista-productos">
-                        <tr data-product-id="101">
-                            <td class="sku">AE-HOOD-001</td>
-                            <td><strong>VOID HOODIE</strong></td>
-                            <td>Heavyweight Hoodies</td>
-                            <td>$320.000</td>
-                            <td><span class="stock-alert">0 (Sold Out)</span></td>
-                            <td><button class="btn-action edit" data-id="101" data-sku="AE-HOOD-001">Edit</button></td>
-                        </tr>
-                        <tr data-product-id="102">
-                            <td class="sku">AE-PANT-044</td>
-                            <td><strong>STATIC CARGO</strong></td>
-                            <td>Cargo Pants</td>
-                            <td>$280.000</td>
-                            <td>45</td>
-                            <td><button class="btn-action edit" data-id="102" data-sku="AE-PANT-044">Edit</button></td>
-                        </tr>
-                    </tbody>
-                </table>
+        </section>
+
+        <section class="promo-banner-section container">
+            <div class="promo-banner">
+                <div class="promo-banner__graphic">
+                    <img src="../img/icon-star.svg" alt="Aethon Graphic" onerror="this.style.display='none'">
+                </div>
+                <div class="promo-banner__text">
+                    <h2>JOIN THE VOID</h2>
+                    <p>10% OFF EN TU PRIMERA COMPRA</p>
+                </div>
+                <div class="promo-banner__action">
+                    <button class="btn btn--outline" id="btn-promo-subscribe">SUSCRÍBETE AHORA</button>
+                </div>
             </div>
-
-            <dialog id="modal-producto" class="admin-modal">
-                <form id="form-producto" class="modal-form">
-                    <h2>Add Piece to Catalog</h2>
-
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="modal-prod-sku">SKU (Batch Code)</label>
-                            <input type="text" id="modal-prod-sku" name="modal-prod-sku" class="input" placeholder="e.g. AE-TEE-002" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="modal-prod-nombre">Piece Name</label>
-                            <input type="text" id="modal-prod-nombre" name="modal-prod-nombre" class="input" placeholder="e.g. REAPER TEE" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="modal-prod-categoria">Collection</label>
-                            <select id="modal-prod-categoria" name="modal-prod-categoria" class="select" required>
-                                <option value="">Select a collection...</option>
-                                <option value="1">Oversized Tees</option>
-                                <option value="2">Cargo Pants</option>
-                                <option value="3">Heavyweight Hoodies</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="modal-prod-precio">Price (COP)</label>
-                            <input type="number" id="modal-prod-precio" name="modal-prod-precio" class="input" placeholder="0" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="modal-prod-img">Image Asset (URL)</label>
-                        <input type="url" id="modal-prod-img" name="modal-prod-img" class="input" placeholder="https://...">
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="modal-prod-desc">Technical Specs / Details</label>
-                        <textarea id="modal-prod-desc" name="modal-prod-desc" class="textarea" placeholder="GSM, fit details, materials..."></textarea>
-                    </div>
-
-                    <div class="modal-actions">
-                        <button type="button" class="btn-secondary" onclick="document.getElementById('modal-producto').close()">CANCEL</button>
-                        <button type="submit" id="btn-guardar-producto" class="btn-primary">PUBLISH DROP</button>
-                    </div>
-                </form>
-            </dialog>
-
         </section>
 
     </main>
 
+    <footer id="footer" class="footer">
+        <div class="container footer__container">
+            <div class="footer__grid grid-5-cols">
+                
+                <div class="footer__col brand-col col-span-2">
+                    <h3 class="footer__logo">AETHON</h3>
+                    <p class="footer__slogan">AETHON no es solo ropa. Es una identidad.<br>Diseñado para quienes desafían lo común.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="TikTok">TK</a>
+                        <a href="#" aria-label="YouTube">YT</a>
+                        <a href="#" aria-label="X (Twitter)">X</a>
+                    </div>
+                </div>
+
+                <div class="footer__col">
+                    <h4 class="footer__heading">TIENDA</h4>
+                    <ul class="footer__links">
+                        <li><a href="products.html">Todos los productos</a></li>
+                        <li><a href="categories.html#hoodies">Hoodies</a></li>
+                        <li><a href="categories.html#tshirts">T-Shirts</a></li>
+                        <li><a href="categories.html#cargo">Cargo Pants</a></li>
+                        <li><a href="categories.html#denim">Denim</a></li>
+                        <li><a href="categories.html#accesorios">Accesorios</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h4 class="footer__heading">INFORMACIÓN</h4>
+                    <ul class="footer__links">
+                        <li><a href="../index.html#brand-story">Acerca de</a></li>
+                        <li><a href="#">Envíos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h4 class="footer__heading">CUENTA</h4>
+                    <ul class="footer__links">
+                        <li><a href="dashboard.html">Mi cuenta</a></li>
+                        <li><a href="orders.html">Mis pedidos</a></li>
+                        <li><a href="#">Lista de deseos</a></li>
+                        <li><a href="#">Direcciones</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col newsletter-col col-span-2">
+                    <h4 class="footer__heading">NEWSLETTER</h4>
+                    <p class="footer__desc">Suscríbete y recibe ofertas exclusivas y novedades.</p>
+                    <form class="footer__newsletter-form">
+                        <div class="input-with-btn">
+                            <input type="email" placeholder="Tu email" required class="input-dark">
+                            <button type="submit" aria-label="Enviar">&rarr;</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2026 AETHON. TODOS LOS DERECHOS RESERVADOS.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cart-modal-container"></div>
+
+    <script src="../js/storage.js"></script>
+    <script src="../js/auth.js"></script>
+    
+    <script src="../components/navbar.js"></script>
+    <script src="../components/product-card.js"></script>
+    <script src="../components/modal-cart.js"></script>
+    
+    <script src="../js/app.js"></script>
+    <script src="../js/products.js"></script>
+    
 </body>
 </html>

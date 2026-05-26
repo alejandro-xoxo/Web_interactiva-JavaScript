@@ -3,108 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHON | Collections</title>
+    <title>Gestión de Categorías | AETHON Admin</title>
+    
+    <meta name="robots" content="noindex, nofollow">
+    
     <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/categories.css">
 </head>
-<body class="content-container">
+<body class="admin-body">
 
-    <main class="app-layout">
+    <div class="dashboard-layout">
 
         <aside id="admin-sidebar" class="sidebar">
-            <div class="sidebar-logo">
-                <div class="sidebar-logo-mark">A</div>
-                <h2 class="sidebar-title">AETHON STUDIO</h2>
+            
+            <div class="sidebar__header">
+                <a href="../index.html" class="sidebar__brand">
+                    <h2>AETHON</h2>
+                    <span class="badge-admin">HQ / ADMIN</span>
+                </a>
             </div>
 
-            <nav class="sidebar-nav">
-                <a href="./dashboard.html" class="nav-link">Overview</a>
-                <a href="./categories.html" class="nav-link nav-link-active">Collections</a>
-                <a href="./products.html" class="nav-link">Inventory (Drops)</a>
-                <a href="./orders.html" class="nav-link">Orders & Fulfillment</a>
-                <a href="./login.html" id="link-logout" class="nav-link mt-auto" style="color: var(--color-peligro);">Sign Out</a> 
+            <nav class="sidebar__nav">
+                <ul id="sidebar-menu" class="sidebar__menu">
+                    <li>
+                        <a href="dashboard.html" id="nav-dashboard">
+                            <span class="icon">⊞</span> Dashboard
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="categories.html" id="nav-categories">
+                            <span class="icon">▤</span> Categorías
+                        </a>
+                    </li>
+                    <li>
+                        <a href="products.html" id="nav-products">
+                            <span class="icon">▣</span> Productos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="orders.html" id="nav-orders">
+                            <span class="icon">📄</span> Pedidos
+                        </a>
+                    </li>
+                </ul>
             </nav>
+
+            <div class="sidebar__footer">
+                <div class="admin-user-info">
+                    <span class="admin-avatar">A</span>
+                    <div class="admin-details">
+                        <span id="current-user-name" class="admin-name">Admin_01</span>
+                        <span id="current-user-role" class="admin-role">System Architect</span>
+                    </div>
+                </div>
+                <button id="btn-logout" class="btn-logout" aria-label="Cerrar sesión">
+                    <span class="icon">⏏</span> LOGOUT
+                </button>
+            </div>
+
         </aside>
 
-        <section class="main-content">
-
-            <header class="page-header">
-                <div class="page-header-inner items-center">
-                    <div>
-                        <h1 class="page-title">Collections</h1>
-                        <p class="page-description">Manage brand lines, capsules, and seasonal drops.</p>
-                    </div>
-                    <button id="btn-agregar-categoria" class="btn btn-primary" onclick="document.getElementById('modal-categoria').showModal()">
-                        NEW COLLECTION
-                    </button>
-                    <button id="mobile-menu-toggle" class="btn-icon btn-secondary hidden">≡</button>
+        <div class="main-wrapper">
+            
+            <header class="admin-topbar">
+                <div class="topbar-search">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="category-search-input" class="input-dark input-sm" placeholder="Buscar categoría...">
+                </div>
+                <div class="topbar-actions">
+                    <span id="system-time" class="system-time">00:00 UTC</span>
                 </div>
             </header>
 
-            <div class="table-container">
-                <table class="admin-table" id="table-categorias"> 
-                    <thead>
-                        <tr>
-                            <th>Collection Name</th>
-                            <th>Design Concept</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="lista-categorias">
-                        <tr data-categoria-id="1">
-                            <td><strong>Oversized Tees</strong></td>
-                            <td>Boxy fit, heavyweight cotton t-shirts.</td>
-                            <td><span class="badge active">Active</span></td>
-                            <td><button class="btn-action edit" data-action="edit" data-id="1">Edit</button></td>
-                        </tr>
-                        <tr data-categoria-id="2">
-                            <td><strong>Archive Collection</strong></td>
-                            <td>Vaulted pieces, limited rereleases.</td>
-                            <td><span class="badge inactive">Vaulted</span></td>
-                            <td><button class="btn-action edit" data-action="edit" data-id="2">Edit</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <main id="categories-main-content" class="admin-main">
+                
+                <div class="admin-page-header">
+                    <div>
+                        <h1 class="page-title">GESTIÓN DE CATEGORÍAS</h1>
+                        <p class="page-subtitle">Administra las líneas de producto del catálogo AETHON.</p>
+                    </div>
+                    <div class="page-actions">
+                        <button id="btn-open-create-modal" class="btn btn--primary">
+                            + NUEVA CATEGORÍA
+                        </button>
+                    </div>
+                </div>
 
-            <dialog id="modal-categoria" class="admin-modal">
-                <form id="form-categoria" class="modal-form">
-                    <h2>Add Collection / Capsule</h2>
+                <section class="admin-panel full-width">
+                    <div class="table-responsive">
+                        <table class="admin-table" id="categories-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NOMBRE</th>
+                                    <th>DESCRIPCIÓN</th>
+                                    <th>PRODUCTOS ASOCIADOS</th>
+                                    <th class="text-right">ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categories-tbody">
+                                
+                                <tr data-category-id="CAT-01">
+                                    <td><strong>CAT-01</strong></td>
+                                    <td>Outerwear</td>
+                                    <td class="text-truncate">Chaquetas, abrigos y capas exteriores de alta resistencia técnica.</td>
+                                    <td>12</td>
+                                    <td class="text-right table-actions">
+                                        <button class="icon-btn btn-edit-category" data-id="CAT-01" aria-label="Editar">✎</button>
+                                        <button class="icon-btn btn-delete-category text-danger" data-id="CAT-01" aria-label="Eliminar">🗑</button>
+                                    </td>
+                                </tr>
+
+                                <tr data-category-id="CAT-02">
+                                    <td><strong>CAT-02</strong></td>
+                                    <td>Hoodies</td>
+                                    <td class="text-truncate">Sudaderas oversize de algodón pesado y cortes desestructurados.</td>
+                                    <td>28</td>
+                                    <td class="text-right table-actions">
+                                        <button class="icon-btn btn-edit-category" data-id="CAT-02" aria-label="Editar">✎</button>
+                                        <button class="icon-btn btn-delete-category text-danger" data-id="CAT-02" aria-label="Eliminar">🗑</button>
+                                    </td>
+                                </tr>
+
+                                <tr data-category-id="CAT-03">
+                                    <td><strong>CAT-03</strong></td>
+                                    <td>Cargo Pants</td>
+                                    <td class="text-truncate">Pantalones utilitarios con múltiples bolsillos y detalles metálicos.</td>
+                                    <td>22</td>
+                                    <td class="text-right table-actions">
+                                        <button class="icon-btn btn-edit-category" data-id="CAT-03" aria-label="Editar">✎</button>
+                                        <button class="icon-btn btn-delete-category text-danger" data-id="CAT-03" aria-label="Eliminar">🗑</button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
                     
-                    <div class="form-group">
-                        <label for="modal-cat-nombre">Collection Name</label>
-                        <input
-                            type="text"
-                            id="modal-cat-nombre"
-                            name="modal-cat-nombre"
-                            class="input"
-                            placeholder="e.g. OUTERWEAR, ARCHIVE..."
-                            required
-                        >
+                    <div id="empty-categories-message" class="empty-state hidden">
+                        <p>No hay categorías registradas en el sistema.</p>
                     </div>
+                </section>
 
-                    <div class="form-group">
-                        <label for="modal-cat-desc">Concept / Vibe</label>
-                        <textarea
-                            id="modal-cat-desc"
-                            name="modal-cat-desc"
-                            class="textarea"
-                            placeholder="Define the aesthetic and materials for this line..."
-                            required
-                        ></textarea>
-                    </div>
+            </main>
+        </div>
+    </div>
 
-                    <div class="modal-actions">
-                        <button type="button" class="btn-secondary" onclick="document.getElementById('modal-categoria').close()">CANCEL</button>
-                        <button type="submit" id="btn-guardar-categoria" class="btn-primary">CREATE COLLECTION</button>
+    <div id="modal-create-category" class="modal-overlay hidden" aria-modal="true" role="dialog">
+        <div class="modal-content modal-md">
+            <div class="modal-header">
+                <h3>CREAR NUEVA CATEGORÍA</h3>
+                <button id="btn-close-create-modal" class="btn-close-modal" aria-label="Cerrar modal">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-create-category" class="admin-form">
+                    
+                    <div class="form-group full-width">
+                        <label for="create-cat-name">Nombre de la Categoría *</label>
+                        <input type="text" id="create-cat-name" name="name" class="input-dark" placeholder="Ej: Footwear" required>
                     </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="create-cat-desc">Descripción</label>
+                        <textarea id="create-cat-desc" name="description" class="input-dark textarea-md" placeholder="Descripción breve de la línea de productos..."></textarea>
+                    </div>
+                    
                 </form>
-            </dialog>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-cancel-create" class="btn btn--outline">CANCELAR</button>
+                <button type="submit" form="form-create-category" id="btn-submit-create" class="btn btn--primary">GUARDAR CATEGORÍA</button>
+            </div>
+        </div>
+    </div>
 
-        </section>
+    <div id="modal-edit-category" class="modal-overlay hidden" aria-modal="true" role="dialog">
+        <div class="modal-content modal-md">
+            <div class="modal-header">
+                <h3>EDITAR CATEGORÍA</h3>
+                <button id="btn-close-edit-modal" class="btn-close-modal" aria-label="Cerrar modal">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-edit-category" class="admin-form">
+                    
+                    <input type="hidden" id="edit-cat-id" name="id">
+                    
+                    <div class="form-group full-width">
+                        <label for="edit-cat-name">Nombre de la Categoría *</label>
+                        <input type="text" id="edit-cat-name" name="name" class="input-dark" required>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="edit-cat-desc">Descripción</label>
+                        <textarea id="edit-cat-desc" name="description" class="input-dark textarea-md"></textarea>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-cancel-edit" class="btn btn--outline">CANCELAR</button>
+                <button type="submit" form="form-edit-category" id="btn-submit-edit" class="btn btn--primary">ACTUALIZAR CAMBIOS</button>
+            </div>
+        </div>
+    </div>
 
-    </main>
+    <script src="../js/storage.js"></script>
+    <script src="../js/auth.js"></script>
+    
+    <script src="../js/app.js"></script>
+    <script src="../js/categories.js"></script>
 
 </body>
 </html>

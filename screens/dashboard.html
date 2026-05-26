@@ -3,35 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHON | Control Center</title>
+    <title>AETHON | Studio Overview</title>
     <link rel="stylesheet" href="../css/utils.css">
     <link rel="stylesheet" href="../css/dashboard.css">
 </head>
-<body>
+<body class="content-container">
 
-    <main>
+    <main class="app-layout">
 
-        <aside>
+        <aside id="admin-sidebar" class="sidebar">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-mark">A</div>
+                <h2 class="sidebar-title">AETHON STUDIO</h2>
+            </div>
 
-            <h2>AETHON [ CORE ]</h2>
-
-            <nav>
-
-                <a href="./categories.html">Líneas de Diseño</a>
-
-                <a href="./products.html">Catálogo (SKUs)</a>
-
-                <a href="./orders.html">Operaciones</a>
-
-                <a href="./login.html" id="link-logout">Desconectar</a> </nav>
-
+            <nav class="sidebar-nav">
+                <a href="./dashboard.html" class="nav-link nav-link-active">Overview</a>
+                <a href="./categories.html" class="nav-link">Collections</a>
+                <a href="./products.html" class="nav-link">Inventory (Drops)</a>
+                <a href="./orders.html" class="nav-link">Orders & Fulfillment</a>
+                <a href="./login.html" id="link-logout" class="nav-link mt-auto" style="color: var(--color-peligro);">Sign Out</a> 
+            </nav>
         </aside>
 
-        <section>
+        <section class="main-content">
+            <header class="page-header">
+                <div class="page-header-inner items-center">
+                    <div>
+                        <h1 class="page-title">Overview</h1>
+                        <p id="text-bienvenida" class="page-description">Studio connected. Welcome back to AETHON.</p> 
+                    </div>
+                    <button id="mobile-menu-toggle" class="btn-icon btn-secondary hidden">≡</button>
+                </div>
+            </header>
 
-            <h1>Panel de Operaciones</h1>
+            <div id="dashboard-stats" class="grid-3 mb-6">
+                <article class="stat-card" id="stat-revenue">
+                    <span class="stat-card-label">Total Revenue</span>
+                    <p class="stat-card-value">$12.45M COP</p>
+                    <span class="stat-card-delta stat-card-delta--up">+15%</span>
+                </article>
+                <article class="stat-card" id="stat-orders">
+                    <span class="stat-card-label">Active Orders</span>
+                    <p class="stat-card-value">34</p>
+                </article>
+                <article class="stat-card" id="stat-alerts">
+                    <span class="stat-card-label">Low Stock Alerts</span>
+                    <p class="stat-card-value">2</p>
+                    <span class="stat-card-delta stat-card-delta--down">Void Hoodie</span>
+                </article>
+            </div>
 
-            <p id="text-bienvenida">Conexión establecida. Bienvenido al Centro de Control AETHON [V1.0].</p> </section>
+            <div class="grid-2">
+                <div id="recent-orders" class="card">
+                    <h2>Recent Fulfillment</h2>
+                    <ul class="activity-list" id="lista-actividad-pedidos">
+                        <li>Order AETH-1025 by Mateo R. - <span class="status packing">Packing</span></li>
+                        <li>Order AETH-1024 by Daniel T. - <span class="status shipped">Shipped</span></li>
+                    </ul>
+                </div>
+                
+                <div id="top-selling" class="card">
+                    <h2>Top Selling Drops</h2>
+                    <ul class="activity-list" id="lista-top-ventas">
+                        <li>1. VOID HOODIE (Obsidian)</li>
+                        <li>2. STATIC CARGO (Olive)</li>
+                        <li>3. ARCHIVE DENIM (Washed)</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
 
     </main>
 

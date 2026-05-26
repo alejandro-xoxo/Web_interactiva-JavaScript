@@ -119,54 +119,6 @@ header h1 {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
-#table-productos {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    font-size: var(--texto-sm);
-    background: rgba(19, 19, 21, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--color-border-slate);
-    border-radius: var(--radio-lg);
-    box-shadow: var(--shadow-premium);
-    overflow: hidden;
-}
-
-#table-productos thead tr {
-    background-color: var(--color-fondo-elevado);
-    border-bottom: 1px solid var(--color-border-slate);
-}
-
-#table-productos th {
-    padding: var(--espacio-4) var(--espacio-5);
-    font-family: var(--fuente-mono);
-    font-size: var(--texto-xs);
-    font-weight: var(--grosor-bold);
-    color: var(--color-gris-500);
-    text-transform: uppercase;
-    letter-spacing: var(--espaciado-letras-amplio);
-}
-
-#table-productos tbody tr {
-    border-bottom: 1px solid var(--color-border-slate);
-    transition: background-color var(--duracion-rapida) var(--curva-out-expo);
-}
-
-#table-productos tbody tr:last-child {
-    border-bottom: none;
-}
-
-#table-productos tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.01);
-}
-
-#table-productos td {
-    padding: var(--espacio-5);
-    color: var(--color-gris-300);
-    vertical-align: middle;
-}
-
 #table-productos td:nth-child(2) {
     color: var(--color-blanco);
     font-weight: var(--grosor-semibold);

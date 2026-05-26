@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bag | AETHON</title>
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/cart.css">
+</head>
+<body class="content-container">
+
+    <header id="main-navigation" class="site-header">
+        <div class="header-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;"><h1 class="brand-logo">AETHON</h1></a>
+            <nav class="public-nav">
+                <a href="../index.html#section-productos">Latest Drops</a>
+                <a href="../index.html#section-categorias">Collections</a>
+                <a href="../index.html#newsletter-form">Community</a>
+                <a href="./login.html" class="nav-staff">Staff</a>
+            </nav>
+            <button id="btn-carrito" class="btn-cart">
+                BAG (2)
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html" class="breadcrumb-item">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-item breadcrumb-item--active">Cart</span>
+            </nav>
+
+            <div class="page-header">
+                <h2 class="page-title">Your Bag</h2>
+                <p class="page-description">Items in your cart are not reserved. Complete your purchase before they sell out.</p>
+            </div>
+
+            <div class="cart-layout">
+                <div id="cart-items" class="cart-items-list">
+                    <div id="cart-empty-state" class="hidden text-center p-6">
+                        <p class="text-muted mb-4">Your bag is empty. Explore the archive.</p>
+                        <a href="../index.html" class="btn btn-primary">SHOP THE DROP</a>
+                    </div>
+
+                    <article class="cart-item-card" data-item-id="1">
+                        <img src="../img/2.png" alt="Static Cargo" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <div class="cart-item-info">
+                                <h3 class="product-card-name">STATIC CARGO</h3>
+                                <p class="text-muted">Color: Obsidian Black</p>
+                                <p class="text-muted">Size: M</p>
+                            </div>
+                            <div class="cart-item-quantity">
+                                <label for="qty-1" class="text-label">Quantity</label>
+                                <input type="number" id="qty-1" class="input input-qty" value="1" min="1" data-price="280000">
+                            </div>
+                            <div class="cart-item-price">
+                                <p class="text-label">Price</p>
+                                <p class="product-card-price">$280.000 COP</p>
+                            </div>
+                        </div>
+                        <button class="btn-icon btn-delete-item" aria-label="Remove item" data-action="delete" data-id="1">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                        </button>
+                    </article>
+
+                    <article class="cart-item-card" data-item-id="2">
+                        <img src="../img/1.png" alt="Void Hoodie" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <div class="cart-item-info">
+                                <h3 class="product-card-name">VOID HOODIE</h3>
+                                <p class="text-muted">Color: Washed Grey</p>
+                                <p class="text-muted">Size: L</p>
+                            </div>
+                            <div class="cart-item-quantity">
+                                <label for="qty-2" class="text-label">Quantity</label>
+                                <input type="number" id="qty-2" class="input input-qty" value="1" min="1" data-price="320000">
+                            </div>
+                            <div class="cart-item-price">
+                                <p class="text-label">Price</p>
+                                <p class="product-card-price">$320.000 COP</p>
+                            </div>
+                        </div>
+                        <button class="btn-icon btn-delete-item" aria-label="Remove item" data-action="delete" data-id="2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                        </button>
+                    </article>
+
+                    <div class="cart-actions">
+                        <a href="../index.html" class="btn btn-secondary">Continue Shopping</a>
+                    </div>
+                </div>
+
+                <aside id="cart-summary" class="order-summary-card">
+                    <div class="card">
+                        <h3 class="section-title">Order Summary</h3>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="cart-subtotal">$600.000 COP</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Discount</span>
+                            <span id="cart-discount">-$0 COP</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span>Calculated at next step</span>
+                        </div>
+                        
+                        <div class="divider"></div>
+
+                        <div class="summary-row total-row">
+                            <span class="text-label">Total</span>
+                            <span id="cart-total" class="total-price">$600.000 COP</span>
+                        </div>
+
+                        <form id="coupon-form" class="coupon-form">
+                            <label for="coupon-code" class="text-label">Discount Code</label>
+                            <div class="input-wrapper-row">
+                                <input type="text" id="coupon-code" class="input" placeholder="Enter code">
+                                <button type="submit" id="coupon-btn" class="btn btn-secondary">Apply</button>
+                            </div>
+                        </form>
+
+                        <button class="btn btn-primary btn-lg w-full mt-6">
+                            Proceed to Checkout
+                        </button>
+                    </div>
+                </aside>
+            </div>
+
+            <section id="recommended-products" class="related-products">
+                <h3 class="section-title text-center">You Might Also Like</h3>
+                <div class="product-grid">
+                    <article class="product-card">
+                        <a href="./product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-image-wrapper">
+                                <img src="../img/3.png" alt="Reaper Tee" class="product-img">
+                            </div>
+                            <div class="product-info">
+                                <h3>REAPER OVERSIZED TEE</h3>
+                                <p class="product-category">Oversized Tees</p>
+                                <p class="product-price">$140.000 COP</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="product-card">
+                        <a href="./product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-image-wrapper">
+                                <img src="../img/6.png" alt="Tech Runner" class="product-img">
+                                 <span class="product-badge new">NEW</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>TECH RUNNER V2</h3>
+                                <p class="product-category">Footwear</p>
+                                <p class="product-price">$450.000 COP</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="product-card">
+                        <a href="./product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-image-wrapper">
+                                <img src="../img/7.png" alt="Utility Bag" class="product-img">
+                            </div>
+                            <div class="product-info">
+                                <h3>UTILITY CROSSBODY BAG</h3>
+                                <p class="product-category">Accessories</p>
+                                <p class="product-price">$180.000 COP</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer id="footer-links" class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>AETHON</h3>
+                <p>Experimental Streetwear.</p>
+                <p>Bogotá, Colombia.</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Explore</h4>
+                <a href="../index.html#section-productos">Shop</a>
+                <a href="../index.html#section-categorias">Collections</a>
+                <a href="#">Archive</a>
+            </div>
+            <div class="footer-support">
+                <h4>Support</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Shipping & Returns</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-social">
+                <h4>Community</h4>
+                <a href="#">Instagram @aethonwear</a>
+                <a href="#">TikTok @aethonwear</a>
+                <a href="#">Discord Community</a>
+                <a href="mailto:contact@aethonwear.com">contact@aethonwear.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AETHON. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

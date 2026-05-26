@@ -3,93 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHON | Líneas de Diseño</title>
+    <title>AETHON | Collections</title>
     <link rel="stylesheet" href="../css/utils.css">
     <link rel="stylesheet" href="../css/categories.css">
 </head>
-<body>
+<body class="content-container">
 
-    <main class="admin-layout">
+    <main class="app-layout">
 
-        <aside class="sidebar">
-
-            <h2 class="sidebar-title">AETHON [ CORE ]</h2>
+        <aside id="admin-sidebar" class="sidebar">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-mark">A</div>
+                <h2 class="sidebar-title">AETHON STUDIO</h2>
+            </div>
 
             <nav class="sidebar-nav">
-                <a href="./dashboard.html" class="nav-link">Control Center</a>
-                <a href="./categories.html" class="nav-link nav-link-active">Líneas de Diseño</a>
-                <a href="./products.html" class="nav-link">Catálogo (SKUs)</a>
-                <a href="./orders.html" class="nav-link">Operaciones</a>
-                <a href="./login.html" class="nav-link logout" id="link-logout">Desconectar</a> </nav>
-
+                <a href="./dashboard.html" class="nav-link">Overview</a>
+                <a href="./categories.html" class="nav-link nav-link-active">Collections</a>
+                <a href="./products.html" class="nav-link">Inventory (Drops)</a>
+                <a href="./orders.html" class="nav-link">Orders & Fulfillment</a>
+                <a href="./login.html" id="link-logout" class="nav-link mt-auto" style="color: var(--color-peligro);">Sign Out</a> 
+            </nav>
         </aside>
 
-        <section class="content-container categories-wrapper">
+        <section class="main-content">
 
             <header class="page-header">
-                <div>
-                    <h1 class="section-title">Líneas de Diseño</h1>
-                    <p class="section-subtitle">Gestión estructurada de colecciones y directrices de marca.</p>
+                <div class="page-header-inner items-center">
+                    <div>
+                        <h1 class="page-title">Collections</h1>
+                        <p class="page-description">Manage brand lines, capsules, and seasonal drops.</p>
+                    </div>
+                    <button id="btn-agregar-categoria" class="btn btn-primary" onclick="document.getElementById('modal-categoria').showModal()">
+                        NEW COLLECTION
+                    </button>
+                    <button id="mobile-menu-toggle" class="btn-icon btn-secondary hidden">≡</button>
                 </div>
-
-                <button id="btn-agregar-categoria" class="btn btn-primary">
-                    NUEVA LÍNEA [ + ]
-                </button>
             </header>
 
-            <div class="card table-responsive">
-                <table class="table" id="table-categorias"> <thead>
+            <div class="table-container">
+                <table class="admin-table" id="table-categorias"> 
+                    <thead>
                         <tr>
-                            <th class="table-header">Nomenclatura</th>
-                            <th class="table-header">Concepto / Detalles</th>
-                            <th class="table-header">Acciones</th>
+                            <th>Collection Name</th>
+                            <th>Design Concept</th>
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
-
                     <tbody id="lista-categorias">
-                        </tbody>
-
+                        <tr data-categoria-id="1">
+                            <td><strong>Oversized Tees</strong></td>
+                            <td>Boxy fit, heavyweight cotton t-shirts.</td>
+                            <td><span class="badge active">Active</span></td>
+                            <td><button class="btn-action edit" data-action="edit" data-id="1">Edit</button></td>
+                        </tr>
+                        <tr data-categoria-id="2">
+                            <td><strong>Archive Collection</strong></td>
+                            <td>Vaulted pieces, limited rereleases.</td>
+                            <td><span class="badge inactive">Vaulted</span></td>
+                            <td><button class="btn-action edit" data-action="edit" data-id="2">Edit</button></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
 
-            <dialog id="modal-categoria" class="modal">
-
+            <dialog id="modal-categoria" class="admin-modal">
                 <form id="form-categoria" class="modal-form">
-
-                    <h2 class="section-title">Añadir Línea de Diseño</h2>
-
+                    <h2>Add Collection / Capsule</h2>
+                    
                     <div class="form-group">
-                        <label for="nombre-categoria" class="form-label">
-                            Nomenclatura (Nombre)
-                        </label>
+                        <label for="modal-cat-nombre">Collection Name</label>
                         <input
                             type="text"
-                            id="nombre-categoria"
-                            name="nombre-categoria"
+                            id="modal-cat-nombre"
+                            name="modal-cat-nombre"
                             class="input"
-                            placeholder="ej. CORE, OUTERWEAR..."
+                            placeholder="e.g. OUTERWEAR, ARCHIVE..."
+                            required
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="descripcion-categoria" class="form-label">
-                            Concepto
-                        </label>
+                        <label for="modal-cat-desc">Concept / Vibe</label>
                         <textarea
-                            id="descripcion-categoria"
-                            name="descripcion-categoria"
+                            id="modal-cat-desc"
+                            name="modal-cat-desc"
                             class="textarea"
-                            placeholder="Especificaciones de la colección..."
+                            placeholder="Define the aesthetic and materials for this line..."
+                            required
                         ></textarea>
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" id="btn-guardar-categoria"> REGISTRAR LÍNEA
-                        </button>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" onclick="document.getElementById('modal-categoria').close()">CANCEL</button>
+                        <button type="submit" id="btn-guardar-categoria" class="btn-primary">CREATE COLLECTION</button>
                     </div>
-
                 </form>
-
             </dialog>
 
         </section>

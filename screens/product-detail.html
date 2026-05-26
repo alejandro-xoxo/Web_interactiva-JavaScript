@@ -3,44 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHON | Spec Sheet</title>
+    <title>AETHON | Void Hoodie</title>
     <link rel="stylesheet" href="../css/utils.css">
     <link rel="stylesheet" href="../css/product-detail.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
-<body>
+<body class="content-container">
 
-    <main>
-
-        <article>
-
-            <a href="../index.html" id="link-volver"> [ ← ] Volver al blueprint
+    <header id="main-navigation" class="site-header">
+        <div class="header-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;"><h1 class="brand-logo">AETHON</h1></a>
+            <nav class="public-nav">
+                <a href="../index.html#section-productos">Latest Drops</a>
+                <a href="../index.html#section-categorias">Collections</a>
+                <a href="../index.html#newsletter-form">Community</a>
+                <a href="./login.html" class="nav-staff">Staff</a>
+            </nav>
+            <a href="./cart.html" style="text-decoration: none;">
+                <button id="btn-carrito" class="btn-cart">
+                    BAG (2)
+                </button>
             </a>
+        </div>
+    </header>
 
-            <img
-                src=""
-                alt="Asset Visual de AETHON"
-                id="imagen-producto"
-            >
+    <main class="main-content product-detail-layout">
+        <div class="container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+            
+            <nav class="breadcrumb" style="margin-bottom: 2rem;">
+                <a href="../index.html" class="breadcrumb-item" style="color: var(--color-muted); text-decoration: none;">Home</a>
+                <span class="breadcrumb-separator" style="margin: 0 0.5rem; color: var(--color-muted);">/</span>
+                <a href="../index.html#section-categorias" class="breadcrumb-item" style="color: var(--color-muted); text-decoration: none;">Heavyweight Hoodies</a>
+                <span class="breadcrumb-separator" style="margin: 0 0.5rem; color: var(--color-muted);">/</span>
+                <span class="breadcrumb-item breadcrumb-item--active" style="color: var(--color-blanco);">Void Hoodie</span>
+            </nav>
 
-            <h1 id="nombre-producto">
-                [ AETHON Core Piece ]
-            </h1>
+            <article class="product-detail-container">
+                
+                <section class="product-gallery">
+                    <img
+                        src="../img/1.png"
+                        alt="Void Hoodie"
+                        id="imagen-producto"
+                        class="main-product-image"
+                    >
+                    <div class="gallery-thumbnails">
+                        <img src="../img/1.png" alt="Thumbnail 1" class="thumbnail">
+                        <img src="../img/4.png" alt="Thumbnail 2" class="thumbnail">
+                        <img src="../img/5.png" alt="Thumbnail 3" class="thumbnail">
+                    </div>
+                </section>
 
-            <p id="precio-producto">
-                $0.00
-            </p>
+                <section class="product-info-panel">
+                    <h1 id="nombre-producto" class="product-title">
+                        VOID HOODIE
+                    </h1>
 
-            <p id="descripcion-producto">
-                Cargando especificaciones técnicas, gramaje y detalles de arquitectura de la prenda...
-            </p>
+                    <p id="precio-producto" class="product-price-large">
+                        $320.000 COP
+                    </p>
 
-            <button id="btn-agregar-carrito">
-                AÑADIR A LA BOLSA
-            </button>
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label>Color</label>
+                            <div id="color-selectors" class="color-swatches">
+                                <button class="swatch active" style="background-color: #0A0510;" title="Obsidian"></button>
+                                <button class="swatch" style="background-color: #48484a;" title="Ash Grey"></button>
+                            </div>
+                        </div>
 
-        </article>
+                        <div class="option-group">
+                            <label>Size</label>
+                            <div id="size-selectors" class="size-selector">
+                                <button class="size-btn">S</button>
+                                <button class="size-btn active">M</button>
+                                <button class="size-btn">L</button>
+                                <button class="size-btn">XL</button>
+                            </div>
+                        </div>
 
+                        <div class="option-group">
+                            <label for="qty-input">Quantity</label>
+                            <input type="number" id="qty-input" class="input input-qty" value="1" min="1" max="10" style="width: 80px;">
+                        </div>
+                    </div>
+
+                    <div class="product-description-box">
+                        <p id="descripcion-producto">
+                            Oversized fit heavyweight hoodie. 400GSM French Terry cotton. Drop shoulder architecture with distressed details and distressed hem. High-density puff print on front and back. Pre-shrunk for zero shrinkage.
+                        </p>
+                        <ul class="product-features">
+                            <li>100% Cotton (400GSM)</li>
+                            <li>Boxy, oversized silhouette</li>
+                            <li>Custom AETHON metal hardware</li>
+                            <li>Designed in Bogotá</li>
+                        </ul>
+                    </div>
+
+                    <button id="btn-agregar-carrito" class="btn-add-cart">
+                        ADD TO BAG
+                    </button>
+
+                    <div class="product-meta">
+                        <p>Status: <span class="stock-status in-stock">In Stock - Ready to Ship</span></p>
+                    </div>
+                </section>
+
+            </article>
+
+            <section id="related-products" class="related-section">
+                <h2>Complete the Fit</h2>
+                <div class="product-grid mini-grid">
+                    <div class="product-card">
+                        <a href="./product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-image-wrapper">
+                                <img src="../img/2.png" alt="Static Cargo" class="product-img">
+                            </div>
+                            <div class="product-info">
+                                <h3>STATIC CARGO</h3>
+                                <p class="product-category">Cargo Pants</p>
+                                <p class="product-price">$280.000 COP</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <a href="./product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-image-wrapper">
+                                <img src="../img/3.png" alt="Reaper Tee" class="product-img">
+                            </div>
+                            <div class="product-info">
+                                <h3>REAPER OVERSIZED TEE</h3>
+                                <p class="product-category">Oversized Tees</p>
+                                <p class="product-price">$140.000 COP</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
+
+    <footer id="footer-links" class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>AETHON</h3>
+                <p>Experimental Streetwear.</p>
+                <p>Bogotá, Colombia.</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Explore</h4>
+                <a href="../index.html#section-productos">Shop</a>
+                <a href="../index.html#section-categorias">Collections</a>
+                <a href="#">Archive</a>
+            </div>
+            <div class="footer-support">
+                <h4>Support</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Shipping & Returns</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-social">
+                <h4>Community</h4>
+                <a href="#">Instagram @aethonwear</a>
+                <a href="#">TikTok @aethonwear</a>
+                <a href="#">Discord Community</a>
+                <a href="mailto:contact@aethonwear.com">contact@aethonwear.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AETHON. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>

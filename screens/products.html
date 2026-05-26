@@ -3,130 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHON | Inventario</title>
+    <title>AETHON | Inventory</title>
     <link rel="stylesheet" href="../css/utils.css">
     <link rel="stylesheet" href="../css/products.css">
 </head>
-<body>
+<body class="content-container">
 
-    <main>
+    <main class="app-layout">
 
-        <aside>
-
-            <h2>AETHON [ CORE ]</h2>
-
-            <nav>
-                <a href="./dashboard.html">Control Center</a>
-                <a href="./categories.html">Líneas de Diseño</a>
-                <a href="./products.html">Catálogo (SKUs)</a>
-                <a href="./orders.html">Operaciones</a>
-                <a href="./login.html" id="link-logout">Desconectar</a> </nav>
-
+        <aside id="admin-sidebar" class="sidebar">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-mark">A</div>
+                <h2 class="sidebar-title">AETHON STUDIO</h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="./dashboard.html" class="nav-link">Overview</a>
+                <a href="./categories.html" class="nav-link">Collections</a>
+                <a href="./products.html" class="nav-link nav-link-active">Inventory (Drops)</a>
+                <a href="./orders.html" class="nav-link">Orders & Fulfillment</a>
+                <a href="./login.html" id="link-logout" class="nav-link mt-auto" style="color: var(--color-peligro);">Sign Out</a> 
+            </nav>
         </aside>
 
-        <section>
+        <section class="main-content">
 
-            <header>
-
-                <h1>Catálogo Maestro</h1>
-
-                <button id="btn-agregar-producto">
-                    REGISTRAR PIEZA [ + ]
-                </button>
-
+            <header class="page-header">
+                <div class="page-header-inner items-center">
+                    <div>
+                        <h1 class="page-title">Inventory & Drops</h1>
+                        <p class="page-description">Manage physical catalog, stock, and pricing.</p>
+                    </div>
+                    <button id="btn-agregar-producto" class="btn btn-primary" onclick="document.getElementById('modal-producto').showModal()">
+                        ADD NEW DROP
+                    </button>
+                    <button id="mobile-menu-toggle" class="btn-icon btn-secondary hidden">≡</button>
+                </div>
             </header>
 
-            <table id="table-productos"> <thead>
-                    <tr>
-                        <th>Lote (SKU)</th>
-                        <th>Denominación de la Pieza</th>
-                        <th>Línea</th>
-                        <th>Valor (COP)</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
+            <div class="table-filters mb-4">
+                <input type="text" id="filter-productos-input" placeholder="Search by SKU or name..." class="input" style="max-width: 320px;">
+            </div>
 
-                <tbody id="lista-productos">
+            <div class="table-container">
+                <table class="admin-table" id="table-productos"> 
+                    <thead>
+                        <tr>
+                            <th>SKU</th>
+                            <th>Piece Name</th>
+                            <th>Collection</th>
+                            <th>Price (COP)</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-productos">
+                        <tr data-product-id="101">
+                            <td class="sku">AE-HOOD-001</td>
+                            <td><strong>VOID HOODIE</strong></td>
+                            <td>Heavyweight Hoodies</td>
+                            <td>$320.000</td>
+                            <td><span class="stock-alert">0 (Sold Out)</span></td>
+                            <td><button class="btn-action edit" data-id="101" data-sku="AE-HOOD-001">Edit</button></td>
+                        </tr>
+                        <tr data-product-id="102">
+                            <td class="sku">AE-PANT-044</td>
+                            <td><strong>STATIC CARGO</strong></td>
+                            <td>Cargo Pants</td>
+                            <td>$280.000</td>
+                            <td>45</td>
+                            <td><button class="btn-action edit" data-id="102" data-sku="AE-PANT-044">Edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                </tbody>
+            <dialog id="modal-producto" class="admin-modal">
+                <form id="form-producto" class="modal-form">
+                    <h2>Add Piece to Catalog</h2>
 
-            </table>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="modal-prod-sku">SKU (Batch Code)</label>
+                            <input type="text" id="modal-prod-sku" name="modal-prod-sku" class="input" placeholder="e.g. AE-TEE-002" required>
+                        </div>
 
-            <dialog id="modal-producto">
+                        <div class="form-group">
+                            <label for="modal-prod-nombre">Piece Name</label>
+                            <input type="text" id="modal-prod-nombre" name="modal-prod-nombre" class="input" placeholder="e.g. REAPER TEE" required>
+                        </div>
 
-                <form id="form-producto">
+                        <div class="form-group">
+                            <label for="modal-prod-categoria">Collection</label>
+                            <select id="modal-prod-categoria" name="modal-prod-categoria" class="select" required>
+                                <option value="">Select a collection...</option>
+                                <option value="1">Oversized Tees</option>
+                                <option value="2">Cargo Pants</option>
+                                <option value="3">Heavyweight Hoodies</option>
+                            </select>
+                        </div>
 
-                    <h2>Nueva Pieza al Blueprint</h2>
+                        <div class="form-group">
+                            <label for="modal-prod-precio">Price (COP)</label>
+                            <input type="number" id="modal-prod-precio" name="modal-prod-precio" class="input" placeholder="0" required>
+                        </div>
+                    </div>
 
-                    <label for="codigo-producto">
-                        Código de Lote (SKU)
-                    </label>
+                    <div class="form-group full-width">
+                        <label for="modal-prod-img">Image Asset (URL)</label>
+                        <input type="url" id="modal-prod-img" name="modal-prod-img" class="input" placeholder="https://...">
+                    </div>
 
-                    <input
-                        type="text"
-                        id="codigo-producto"
-                        name="codigo-producto"
-                        placeholder="ej. AE-CORE-001"
-                    >
+                    <div class="form-group full-width">
+                        <label for="modal-prod-desc">Technical Specs / Details</label>
+                        <textarea id="modal-prod-desc" name="modal-prod-desc" class="textarea" placeholder="GSM, fit details, materials..."></textarea>
+                    </div>
 
-                    <label for="nombre-producto">
-                        Denominación
-                    </label>
-
-                    <input
-                        type="text"
-                        id="nombre-producto"
-                        name="nombre-producto"
-                        placeholder="Nombre exacto de la prenda"
-                    >
-
-                    <label for="categoria-producto">
-                        Línea de Diseño
-                    </label>
-
-                    <select
-                        id="categoria-producto"
-                        name="categoria-producto"
-                    >
-                    </select>
-
-                    <label for="precio-producto">
-                        Valor Unitario
-                    </label>
-
-                    <input
-                        type="number"
-                        id="precio-producto"
-                        name="precio-producto"
-                        placeholder="0.00"
-                    >
-
-                    <label for="imagen-producto">
-                        Asset Visual (URL)
-                    </label>
-
-                    <input
-                        type="url"
-                        id="imagen-producto"
-                        name="imagen-producto"
-                        placeholder="https://..."
-                    >
-
-                    <label for="descripcion-producto">
-                        Especificaciones Técnicas / GSM
-                    </label>
-
-                    <textarea
-                        id="descripcion-producto"
-                        name="descripcion-producto"
-                        placeholder="Detalles de tejido, fit, herrajes..."
-                    ></textarea>
-
-                    <button type="submit" id="btn-guardar-producto"> PUBLICAR PIEZA
-                    </button>
-
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" onclick="document.getElementById('modal-producto').close()">CANCEL</button>
+                        <button type="submit" id="btn-guardar-producto" class="btn-primary">PUBLISH DROP</button>
+                    </div>
                 </form>
-
             </dialog>
 
         </section>

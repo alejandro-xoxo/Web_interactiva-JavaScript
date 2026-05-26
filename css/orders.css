@@ -103,54 +103,6 @@ header p {
     margin: 0;
 }
 
-#table-pedidos {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    font-size: var(--texto-sm);
-    background: rgba(19, 19, 21, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--color-border-slate);
-    border-radius: var(--radio-lg);
-    box-shadow: var(--shadow-premium);
-    overflow: hidden;
-}
-
-#table-pedidos thead tr {
-    background-color: var(--color-fondo-elevado);
-    border-bottom: 1px solid var(--color-border-slate);
-}
-
-#table-pedidos th {
-    padding: var(--espacio-4) var(--espacio-5);
-    font-family: var(--fuente-mono);
-    font-size: var(--texto-xs);
-    font-weight: var(--grosor-bold);
-    color: var(--color-gris-500);
-    text-transform: uppercase;
-    letter-spacing: var(--espaciado-letras-amplio);
-}
-
-#table-pedidos tbody tr {
-    border-bottom: 1px solid var(--color-border-slate);
-    transition: background-color var(--duracion-rapida) var(--curva-out-expo);
-}
-
-#table-pedidos tbody tr:last-child {
-    border-bottom: none;
-}
-
-#table-pedidos tbody tr:hover {
-    background-color: rgba(90, 62, 117, 0.04);
-}
-
-#table-pedidos td {
-    padding: var(--espacio-5);
-    color: var(--color-gris-300);
-    vertical-align: middle;
-}
-
 #table-pedidos td:nth-child(1) {
     font-family: var(--fuente-mono);
     color: var(--color-gris-400);
@@ -298,10 +250,5 @@ dialog#modal-pedido h2 {
 
     section {
         padding: var(--espacio-8) var(--espacio-4);
-    }
-
-    #table-pedidos {
-        display: block;
-        overflow-x: auto;
     }
 }

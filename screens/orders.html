@@ -3,74 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHON | Operaciones</title>
+    <title>AETHON | Orders & Fulfillment</title>
     <link rel="stylesheet" href="../css/utils.css">
     <link rel="stylesheet" href="../css/orders.css">
 </head>
-<body>
+<body class="content-container">
 
-    <main>
+    <main class="app-layout">
 
-        <aside>
+        <aside id="admin-sidebar" class="sidebar">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-mark">A</div>
+                <h2 class="sidebar-title">AETHON STUDIO</h2>
+            </div>
 
-            <h2>AETHON [ CORE ]</h2>
-
-            <nav>
-                <a href="./dashboard.html">Control Center</a>
-                <a href="./categories.html">Líneas de Diseño</a>
-                <a href="./products.html">Catálogo (SKUs)</a>
-                <a href="./orders.html">Operaciones</a>
-                <a href="./login.html" id="link-logout">Desconectar</a> </nav>
-
+            <nav class="sidebar-nav">
+                <a href="./dashboard.html" class="nav-link">Overview</a>
+                <a href="./categories.html" class="nav-link">Collections</a>
+                <a href="./products.html" class="nav-link">Inventory (Drops)</a>
+                <a href="./orders.html" class="nav-link nav-link-active">Orders & Fulfillment</a>
+                <a href="./login.html" id="link-logout" class="nav-link mt-auto" style="color: var(--color-peligro);">Sign Out</a> 
+            </nav>
         </aside>
 
-        <section>
+        <section class="main-content">
 
-            <header>
-
-                <h1>Registro de Operaciones</h1>
-
-                <p>Monitor de transacciones y envíos logísticos globales.</p>
-
+            <header class="page-header">
+                <div class="page-header-inner items-center">
+                    <div>
+                        <h1 class="page-title">Orders & Fulfillment</h1>
+                        <p class="page-description">Global logistics and transaction monitor.</p>
+                    </div>
+                    <button id="mobile-menu-toggle" class="btn-icon btn-secondary hidden">≡</button>
+                </div>
             </header>
 
-            <table id="table-pedidos"> <thead>
-                    <tr>
-                        <th>Timestamp</th>
-                        <th>Usuario (Cliente)</th>
-                        <th>Contacto</th>
-                        <th>Volumen ($)</th>
-                        <th>Revisión</th>
-                    </tr>
-                </thead>
+            <div class="table-container">
+                <table class="admin-table" id="table-pedidos"> 
+                    <thead>
+                        <tr>
+                            <th>Order ID / Date</th>
+                            <th>Customer</th>
+                            <th>Contact / City</th>
+                            <th>Total ($)</th>
+                            <th>Status</th>
+                            <th>Review</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-pedidos">
+                        <tr data-order-id="AETH-1025">
+                            <td><strong>AETH-1025</strong><br><span class="date">16 Jul 2026</span></td>
+                            <td>Mateo Ramírez</td>
+                            <td>mateo.r@email.com<br>Medellín, ANT</td>
+                            <td>$320.000</td>
+                            <td><span class="badge pending">Pending</span></td>
+                            <td><button class="btn-action view" onclick="document.getElementById('modal-pedido').showModal()">Details</button></td>
+                        </tr>
+                        <tr data-order-id="AETH-1024">
+                            <td><strong>AETH-1024</strong><br><span class="date">15 Jul 2026</span></td>
+                            <td>Daniel Torres</td>
+                            <td>dtorres89@email.com<br>Bogotá, CUN</td>
+                            <td>$189.900</td>
+                            <td><span class="badge delivered">Delivered</span></td>
+                            <td><button class="btn-action view" onclick="document.getElementById('modal-pedido').showModal()">Details</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                <tbody id="lista-pedidos">
+            <dialog id="modal-pedido" class="admin-modal order-modal">
+                <article class="order-details-wrapper">
+                    <header class="modal-header">
+                        <h2>Transaction Report <span id="modal-order-id" class="order-id">#AETH-1025</span></h2>
+                    </header>
 
-                </tbody>
-
-            </table>
-
-            <dialog id="modal-pedido">
-
-                <article>
-
-                    <h2>Reporte de Transacción</h2>
-
-                    <section id="datos-cliente">
+                    <div class="order-grid">
+                        <section id="modal-customer-details" class="order-section">
+                            <h3>Customer Data</h3>
+                            <p><strong>Name:</strong> Mateo Ramírez</p>
+                            <p><strong>Email:</strong> mateo.r@email.com</p>
+                            <p><strong>Shipping:</strong> Cra 45 # 12-34, Medellín</p>
                         </section>
 
-                    <section id="productos-pedido">
+                        <section class="order-section">
+                            <h3>Items Ordered</h3>
+                            <ul id="modal-order-items-list" class="order-items-list">
+                                <li>1x VOID HOODIE (Size M) - $320.000</li>
+                            </ul>
                         </section>
 
-                    <section id="resumen-pedido">
+                        <section class="order-section total-section">
+                            <h3>Summary</h3>
+                            <p id="modal-summary-subtotal">Subtotal: $320.000</p>
+                            <p>Shipping: $15.000</p>
+                            <p id="modal-summary-total" class="grand-total">Total: $335.000 COP</p>
                         </section>
+                    </div>
 
-                    <button id="cerrar-modal-pedido">
-                        CERRAR PANEL
-                    </button>
-
+                    <div class="modal-actions">
+                        <button id="cerrar-modal-pedido" class="btn-secondary" onclick="document.getElementById('modal-pedido').close()">
+                            CLOSE PANEL
+                        </button>
+                    </div>
                 </article>
-
             </dialog>
 
         </section>

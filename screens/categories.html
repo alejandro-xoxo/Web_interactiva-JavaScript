@@ -3,85 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorías</title>
+    <title>AETHON | Collections</title>
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/categories.css">
 </head>
-<body>
+<body class="content-container">
 
-    <main>
+    <main class="app-layout">
 
-        <aside>
+        <aside id="admin-sidebar" class="sidebar">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-mark">A</div>
+                <h2 class="sidebar-title">AETHON STUDIO</h2>
+            </div>
 
-            <h2>Panel Admin</h2>
-
-            <nav>
-                <a href="./dashboard.html">Dashboard</a>
-                <a href="./categories.html">Categorías</a>
-                <a href="./products.html">Productos</a>
-                <a href="./orders.html">Pedidos</a>
-                <a href="./login.html">Cerrar sesión</a>
+            <nav class="sidebar-nav">
+                <a href="./dashboard.html" class="nav-link">Overview</a>
+                <a href="./categories.html" class="nav-link nav-link-active">Collections</a>
+                <a href="./products.html" class="nav-link">Inventory (Drops)</a>
+                <a href="./orders.html" class="nav-link">Orders & Fulfillment</a>
+                <a href="./login.html" id="link-logout" class="nav-link mt-auto" style="color: var(--color-peligro);">Sign Out</a> 
             </nav>
-
         </aside>
 
-        <section>
+        <section class="main-content">
 
-            <header>
-
-                <h1>Categorías</h1>
-
-                <button id="btn-agregar-categoria">
-                    Agregar categoría
-                </button>
-
+            <header class="page-header">
+                <div class="page-header-inner items-center">
+                    <div>
+                        <h1 class="page-title">Collections</h1>
+                        <p class="page-description">Manage brand lines, capsules, and seasonal drops.</p>
+                    </div>
+                    <button id="btn-agregar-categoria" class="btn btn-primary" onclick="document.getElementById('modal-categoria').showModal()">
+                        NEW COLLECTION
+                    </button>
+                    <button id="mobile-menu-toggle" class="btn-icon btn-secondary hidden">≡</button>
+                </div>
             </header>
 
-            <table>
+            <div class="table-container">
+                <table class="admin-table" id="table-categorias"> 
+                    <thead>
+                        <tr>
+                            <th>Collection Name</th>
+                            <th>Design Concept</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-categorias">
+                        <tr data-categoria-id="1">
+                            <td><strong>Oversized Tees</strong></td>
+                            <td>Boxy fit, heavyweight cotton t-shirts.</td>
+                            <td><span class="badge active">Active</span></td>
+                            <td><button class="btn-action edit" data-action="edit" data-id="1">Edit</button></td>
+                        </tr>
+                        <tr data-categoria-id="2">
+                            <td><strong>Archive Collection</strong></td>
+                            <td>Vaulted pieces, limited rereleases.</td>
+                            <td><span class="badge inactive">Vaulted</span></td>
+                            <td><button class="btn-action edit" data-action="edit" data-id="2">Edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
+            <dialog id="modal-categoria" class="admin-modal">
+                <form id="form-categoria" class="modal-form">
+                    <h2>Add Collection / Capsule</h2>
+                    
+                    <div class="form-group">
+                        <label for="modal-cat-nombre">Collection Name</label>
+                        <input
+                            type="text"
+                            id="modal-cat-nombre"
+                            name="modal-cat-nombre"
+                            class="input"
+                            placeholder="e.g. OUTERWEAR, ARCHIVE..."
+                            required
+                        >
+                    </div>
 
-                <tbody id="lista-categorias">
+                    <div class="form-group">
+                        <label for="modal-cat-desc">Concept / Vibe</label>
+                        <textarea
+                            id="modal-cat-desc"
+                            name="modal-cat-desc"
+                            class="textarea"
+                            placeholder="Define the aesthetic and materials for this line..."
+                            required
+                        ></textarea>
+                    </div>
 
-                </tbody>
-
-            </table>
-
-            <dialog id="modal-categoria">
-
-                <form id="form-categoria">
-
-                    <h2>Nueva Categoría</h2>
-
-                    <label for="nombre-categoria">
-                        Nombre
-                    </label>
-
-                    <input
-                        type="text"
-                        id="nombre-categoria"
-                        name="nombre-categoria"
-                    >
-
-                    <label for="descripcion-categoria">
-                        Descripción
-                    </label>
-
-                    <textarea
-                        id="descripcion-categoria"
-                        name="descripcion-categoria"
-                    ></textarea>
-
-                    <button type="submit">
-                        Guardar
-                    </button>
-
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" onclick="document.getElementById('modal-categoria').close()">CANCEL</button>
+                        <button type="submit" id="btn-guardar-categoria" class="btn-primary">CREATE COLLECTION</button>
+                    </div>
                 </form>
-
             </dialog>
 
         </section>

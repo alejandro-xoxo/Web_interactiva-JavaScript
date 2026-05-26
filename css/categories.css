@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo-base);
+}
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--color-fondo-base);
+    color: var(--color-blanco);
+    font-family: var(--fuente-cuerpo);
+}
+
+.categories-wrapper {
+    flex: 1;
+    padding: var(--espacio-10) var(--espacio-12);
+    background-image: var(--gradiente-glow);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-8);
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--espacio-4);
+    border-bottom: 1px solid var(--color-border-slate);
+    padding-bottom: var(--espacio-6);
+}
+
+#table-categorias td:first-child {
+    color: var(--color-blanco);
+    font-weight: var(--grosor-semibold);
+    letter-spacing: var(--espaciado-letras-cercano);
+}
+
+#table-categorias td:last-child {
+    display: flex;
+    gap: var(--espacio-2);
+    justify-content: flex-start;
+}
+
+dialog.modal {
+    background-color: var(--color-fondo-elevado);
+    border: 1px solid var(--border-glow-subtle);
+    border-radius: var(--radio-xl);
+    padding: var(--espacio-8) var(--espacio-10);
+    box-shadow: var(--sombra-xl);
+    color: var(--color-blanco);
+    max-width: 500px;
+    width: 90%;
+}
+
+dialog.modal::backdrop {
+    background: rgba(11, 11, 12, 0.85);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-5);
+}
+
+.modal-form h2.section-title {
+    font-size: var(--texto-xl);
+    letter-spacing: var(--espaciado-letras-ajustado);
+    margin-bottom: var(--espacio-2);
+}
+
+@media (max-width: 768px) {
+    .admin-layout {
+        flex-direction: column;
+    }
+
+    .categories-wrapper {
+        padding: var(--espacio-8) var(--espacio-4);
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--espacio-4);
+    }
+
+    #btn-agregar-categoria {
+        width: 100%;
+    }
+}

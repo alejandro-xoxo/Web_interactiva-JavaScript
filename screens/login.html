@@ -3,41 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>AETHON | Staff Access</title>
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
-<body>
+<body class="login-body">
 
-    <main>
+    <main class="login-container">
 
-        <section>
+        <section class="login-card">
 
-            <h1>Login</h1>
+            <div class="login-header">
+                <a href="../index.html" style="text-decoration: none; color: inherit;"><h1 class="brand-logo">AETHON</h1></a>
+                <h2>STUDIO ACCESS</h2>
+                <p>Authorized personnel only. Enter credentials to manage drops and collections.</p>
+            </div>
 
-            <form id="login-form">
+            <form id="login-form" class="auth-form" action="./dashboard.html" method="GET">
 
-                <label for="email">Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                >
+                <div class="form-group">
+                    <label for="email">Staff Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="input"
+                        placeholder="ej. admin@aethonwear.com"
+                        required
+                    >
+                </div>
 
-                <label for="password">Contraseña</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Enter your password"
-                >
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="input"
+                        placeholder="••••••••••••"
+                        required
+                    >
+                </div>
 
-                <button type="submit" id="login-btn">
-                    Log In
+                <button type="submit" id="login-btn" class="btn-primary login-submit">
+                    ENTER STUDIO
                 </button>
 
             </form>
 
-            <p id="login-message"></p>
+            <div class="login-footer">
+                <a href="#" id="forgot-password-link" class="forgot-password">Lost access? Contact IT.</a>
+                <p id="login-message" class="auth-message"></p>
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <a href="../index.html" style="color: var(--color-muted); text-decoration: underline; font-size: 0.85rem;">Return to Public Store</a>
+                </div>
+            </div>
 
         </section>
 

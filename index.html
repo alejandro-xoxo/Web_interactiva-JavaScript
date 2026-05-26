@@ -3,81 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Online</title>
+    <title>AETHON | Experimental Streetwear</title>
+    <link rel="stylesheet" href="./css/utils.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
 
-    <header>
+    <header id="main-navigation" class="site-header">
+        <div class="header-container">
+            <h1 class="brand-logo">AETHON</h1>
+            
+            <nav class="public-nav">
+                <a href="#featured-products">Latest Drops</a>
+                <a href="#section-categorias">Collections</a>
+                <a href="#newsletter-form">Community</a>
+                <a href="./screens/login.html" class="nav-staff">Staff</a>
+            </nav>
 
-        <h1>Tienda Online</h1>
-
-        <button id="btn-carrito">
-            Carrito (0)
-        </button>
-
+            <button id="btn-carrito" class="btn-cart">
+                BAG (0)
+            </button>
+        </div>
     </header>
 
     <main>
-
-        <section>
-
-            <h2>Buscar Productos</h2>
-
-            <input
-                type="search"
-                id="buscar-producto"
-                placeholder="Buscar producto..."
-            >
-
-        </section>
-
-        <section>
-
-            <h2>Categorías</h2>
-
-            <div id="filtros-categorias">
-
+        <section id="hero-section" class="hero-banner">
+            <div class="hero-content">
+                <h2>VOID COLLECTION. OUT NOW.</h2>
+                <p>Limited pieces. Heavyweight cotton. No restocks.</p>
+                <a href="#section-productos" class="btn-primary">SHOP THE DROP</a>
             </div>
-
         </section>
 
-        <section>
-
-            <h2>Productos</h2>
-
-            <div id="contenedor-productos">
-
+        <section id="section-busqueda" class="search-section">
+            <div class="search-container">
+                <h2>Explore The Archive</h2>
+                <input
+                    type="search"
+                    id="buscar-producto"
+                    class="input-search"
+                    placeholder="Search drops, hoodies, cargos..."
+                >
             </div>
-
         </section>
 
+        <section id="section-categorias" class="collections-section">
+            <h2>Collections</h2>
+            <div id="filtros-categorias" class="collections-grid">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Oversized Tees</button>
+                <button class="filter-btn">Heavyweight Hoodies</button>
+                <button class="filter-btn">Cargo Pants</button>
+                <button class="filter-btn">Outerwear</button>
+            </div>
+        </section>
+
+        <section id="section-productos" class="featured-products">
+            <h2 id="featured-title">Latest Drops</h2>
+            
+            <div id="contenedor-productos" class="product-grid">
+                <article class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="placeholder-void-hoodie.jpg" alt="Void Hoodie" class="product-img">
+                        <span class="product-badge">SOLD OUT</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>VOID HOODIE</h3>
+                        <p class="product-category">Heavyweight Hoodies</p>
+                        <p class="product-price">$320.000 COP</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="placeholder-static-cargo.jpg" alt="Static Cargo" class="product-img">
+                        <span class="product-badge new">NEW ARRIVAL</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>STATIC CARGO</h3>
+                        <p class="product-category">Cargo Pants</p>
+                        <p class="product-price">$280.000 COP</p>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="placeholder-reaper-tee.jpg" alt="Reaper Tee" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3>REAPER OVERSIZED TEE</h3>
+                        <p class="product-category">Oversized Tees</p>
+                        <p class="product-price">$140.000 COP</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="newsletter-form" class="newsletter-section">
+            <div class="newsletter-container">
+                <h2>JOIN THE SYNDICATE</h2>
+                <p>Early access to drops, secret archives, and exclusive events.</p>
+                <form id="newsletter-form-element" class="email-form">
+                    <input type="email" id="newsletter-email" class="input" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+                </form>
+            </div>
+        </section>
     </main>
 
-    <dialog id="modal-carrito">
-
-        <section>
-
-            <h2>Carrito de Compras</h2>
-
-            <div id="productos-carrito">
-
+    <footer id="footer-links" class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>AETHON</h3>
+                <p>Experimental Streetwear.</p>
+                <p>Bogotá, Colombia.</p>
             </div>
-
-            <p id="total-compra">
-                Total: $0
-            </p>
-
-            <button id="btn-comprar">
-                Comprar
-            </button>
-
-            <button id="btn-cerrar-carrito">
-                Cerrar
-            </button>
-
-        </section>
-
-    </dialog>
+            <div class="footer-nav">
+                <h4>Explore</h4>
+                <a href="#featured-products">Shop</a>
+                <a href="#section-categorias">Collections</a>
+                <a href="#">Archive</a>
+            </div>
+            <div class="footer-support">
+                <h4>Support</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Shipping & Returns</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-social">
+                <h4>Community</h4>
+                <a href="#">Instagram @aethonwear</a>
+                <a href="#">TikTok @aethonwear</a>
+                <a href="#">Discord Community</a>
+                <a href="#">WhatsApp: +57 300 555 2211</a>
+                <a href="mailto:contact@aethonwear.com">contact@aethonwear.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AETHON. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>

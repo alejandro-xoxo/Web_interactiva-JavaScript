@@ -2,24 +2,25 @@ const PRODUCT_CARD_TEMPLATE = document.createElement('template');
 PRODUCT_CARD_TEMPLATE.innerHTML = `
   <style>
     :host { display: block; box-sizing: border-box; width: 100%; max-width: 100%; }
-    .card { display: grid; grid-template-rows: auto 1fr; background: #ffffff; border: 1px solid #e3e3e3; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 40px rgba(12, 15, 22, 0.06); transition: transform 0.25s ease, box-shadow 0.25s ease; }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 24px 46px rgba(12, 15, 22, 0.1); }
-    .image-shell { position: relative; width: 100%; padding-top: 100%; overflow: hidden; background: linear-gradient(180deg, #f4f4f4 0%, #ededed 100%); }
-    .product-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-    .content { display: flex; flex-direction: column; gap: 0.85rem; padding: 1rem; }
-    .category { color: #7d7d7d; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
-    .title { margin: 0; font-size: 1rem; line-height: 1.3; color: #111; }
-    .price { margin: 0; font-size: 1.05rem; font-weight: 700; color: #111; }
-    .actions { display: grid; gap: 0.7rem; grid-template-columns: 1fr 1fr; }
-    .button { border: 1px solid transparent; border-radius: 999px; padding: 0.75rem 0.95rem; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
-    .view-button { background: #111; color: #fff; border-color: #111; }
-    .view-button:hover { background: #222; }
-    .add-button { background: #fff; color: #111; border-color: #dcdcdc; }
-    .add-button:hover { background: #f8f8f8; }
+    .card { display: grid; grid-template-rows: auto 1fr; background: transparent; border: 1px solid #1A1A1A; border-radius: 0; overflow: hidden; }
+    .card:hover { transform: none; }
+    .image-shell { position: relative; width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: #000; }
+    .product-image { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); transition: filter 0.3s ease; }
+    .card:hover .product-image { filter: grayscale(0%); }
+    .content { display: flex; flex-direction: column; gap: 0.6rem; padding: 1rem; color: #EEEEEE; font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
+    .category { color: #EEEEEE; font-size: 0.75rem; letter-spacing: 0.12em; }
+    .title { margin: 0; font-size: 1rem; line-height: 1.2; color: #FFFFFF; font-family: sans-serif; letter-spacing: 0.12em; }
+    .price { margin: 0; font-size: 1.05rem; font-weight: 700; color: #FFFFFF; letter-spacing: 0.12em; }
+    .actions { display: grid; gap: 0.5rem; grid-template-columns: 1fr 1fr; }
+    .button { border: 1px solid #FFFFFF; border-radius: 0; padding: 0.6rem 0.7rem; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; background: #FFFFFF; color: #000000; text-transform: uppercase; letter-spacing: 0.1em; font-family: sans-serif; }
+    .button.view-button { background: transparent; color: #EEEEEE; border-color: #FFFFFF; }
+    .button.view-button:hover { background: #65256b; color: #FFFFFF; border-color: #65256b; }
+    .button.add-button { background: #FFFFFF; color: #000000; border-color: #FFFFFF; }
+    .button.add-button:hover { background: #65256b; color: #FFFFFF; border-color: #65256b; }
     @media (max-width: 640px) {
-      .card { border-radius: 16px; }
+      .card { border-radius: 0; }
       .actions { grid-template-columns: 1fr; }
-      .content { padding: 0.95rem; }
+      .content { padding: 0.85rem; }
     }
   </style>
   <article class="card" part="card">

@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHON Cargo Jeans | AETHON</title>
+    <title>AETHON | Producto</title>
     
     <meta name="description" content="Pantalón cargo oversize confeccionado en denim pesado de alta densidad. Detalles metálicos y diseño utilitario.">
     
     <link rel="stylesheet" href="../css/utils.css">
     <link rel="stylesheet" href="../css/product-detail.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
 
@@ -53,90 +54,30 @@
                     <li><span class="separator">></span></li>
                     <li><a href="categories.html#cargo-pants">Cargo Pants</a></li>
                     <li><span class="separator">></span></li>
-                    <li aria-current="page">AETHON Cargo Jeans</li>
+                    <li aria-current="page" id="product-breadcrumb-title"></li>
                 </ol>
             </nav>
         </div>
 
-        <section id="product-overview" class="product-overview section-padding container">
-            <div class="product-layout-split">
-                
-                <div class="product-gallery">
-                    <div id="gallery-thumbnails" class="gallery-thumbnails">
-                        <button class="thumbnail-btn active"><img src="../img/product-02-thumb1.jpg" alt="Vista frontal"></button>
-                        <button class="thumbnail-btn"><img src="../img/product-02-thumb2.jpg" alt="Vista lateral"></button>
-                        <button class="thumbnail-btn"><img src="../img/product-02-thumb3.jpg" alt="Vista trasera"></button>
-                        <button class="thumbnail-btn"><img src="../img/product-02-thumb4.jpg" alt="Detalle bolsillo"></button>
-                        <button class="thumbnail-btn"><img src="../img/product-02-thumb5.jpg" alt="Detalle cadenas"></button>
-                        <button class="thumbnail-scroll-down" aria-label="Ver más imágenes">∨</button>
+        <section id="product-overview" class="product-overview section-padding">
+            <div id="product-detail-container" class="product-detail-container container">
+                <div class="product-layout-split">
+                    <div class="product-gallery" id="product-image">
+                        <!-- Image will be injected here by JS -->
                     </div>
 
-                    <div class="gallery-main">
-                        <img id="main-product-image" src="../img/product-02-large.jpg" alt="AETHON Cargo Jeans Principal">
-                        <button id="btn-zoom-image" class="btn-zoom" aria-label="Ampliar imagen">⊕</button>
-                    </div>
-                </div>
+                    <div class="product-info" id="product-info">
+                        <div class="product-info__category" id="product-category"></div>
+                        <h1 class="product-info__title" id="product-title"></h1>
 
-                <div class="product-info" id="product-data" data-product-id="AET-002">
-                    
-                    <span class="product-info__category">CARGO PANTS</span>
-                    <h1 class="product-info__title">AETHON CARGO JEANS</h1>
-                    
-                    <div class="product-info__price-reviews">
-                        <span class="price">€109,00</span>
-                        <div class="reviews">
-                            <span class="stars">★★★★★</span>
-                            <span class="review-count">(87)</span>
+                        <div class="product-info__price-reviews">
+                            <p class="price" id="product-price"></p>
+                        </div>
+
+                        <div class="product-actions">
+                            <button id="btn-add-to-cart" class="btn" style="background:var(--black-900); border:1px solid #FFFFFF; color:#FFFFFF;">AÑADIR AL CARRITO</button>
                         </div>
                     </div>
-
-                    <p class="product-info__description">
-                        Pantalón cargo oversize confeccionado en denim pesado de alta densidad. Lavado desgastado a mano con detalles metálicos, cadenas removibles y múltiples bolsillos utilitarios. Diseñado para resistir. Creado para destacar.
-                    </p>
-
-                    <ul class="product-info__features">
-                        <li><span class="icon">☼</span> Fit oversize extremo</li>
-                        <li><span class="icon">☼</span> Tejido 100% algodón premium</li>
-                        <li><span class="icon">☼</span> Detalles metálicos en níquel oscuro</li>
-                        <li><span class="icon">☼</span> Acabado vintage lavado a mano</li>
-                        <li><span class="icon">☼</span> Edición limitada</li>
-                    </ul>
-
-                    <div class="selector-group" id="color-selector">
-                        <span class="selector-label">COLOR: <span id="selected-color-name">NEGRO</span></span>
-                        <div class="color-options">
-                            <button class="color-btn active" data-color="negro" aria-label="Negro" style="background-color: #000;"></button>
-                            <button class="color-btn" data-color="gris" aria-label="Gris Desgastado" style="background-color: #333;"></button>
-                            <button class="color-btn color-pattern" data-color="void" aria-label="Void Pattern">
-                                <img src="../img/swatch-void.jpg" alt="Void">
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="selector-group" id="size-selector">
-                        <span class="selector-label">TALLA: <span id="selected-size-name">M</span></span>
-                        <div class="size-options">
-                            <button class="size-btn" data-size="XS">XS</button>
-                            <button class="size-btn" data-size="S">S</button>
-                            <button class="size-btn active" data-size="M">M</button>
-                            <button class="size-btn" data-size="L">L</button>
-                            <button class="size-btn" data-size="XL">XL</button>
-                            <button class="size-btn" data-size="XXL">XXL</button>
-                        </div>
-                        <button class="btn-text size-guide-btn" id="btn-size-guide">📏 Guía de tallas</button>
-                    </div>
-
-                    <div class="product-actions">
-                        <button id="btn-add-to-cart" class="btn btn--primary btn--full-width">
-                            <span>🛍️</span> AÑADIR AL CARRITO
-                        </button>
-                        <button id="btn-add-wishlist" class="btn-wishlist-large" aria-label="Añadir a lista de deseos">♡</button>
-                    </div>
-
-                    <div class="shipping-notice">
-                        <span class="icon">🚚</span> Envío gratis en pedidos superiores a €80
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -180,12 +121,8 @@
 
                 <div class="tabs-content-area" id="tabs-content">
                     <div class="tab-panel active" id="tab-desc">
-                        <p class="tab-text">
-                            Inspirado en el caos urbano y la estética underground. Cada costura, cada cadena y cada remache cuentan la historia de AETHON: libertad sin reglas. Este pantalón no sigue tendencias, las rompe.
-                        </p>
-                        <div class="tab-image-full">
-                            <img src="../img/product-detail-banner.jpg" alt="Detalle de texturas y cadenas del Aethon Cargo Jeans" class="img-cover">
-                        </div>
+                        <!-- Description injected by JS -->
+                        <div id="product-description"></div>
                     </div>
                     </div>
 
@@ -202,7 +139,6 @@
                 
                 <article class="product-card" data-product-id="AET-005">
                     <div class="product-card__image-wrapper">
-                        <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
                         <a href="product-detail.html?id=AET-005">
                             <img src="../img/product-05.jpg" alt="Void Hoodie" class="product-card__img">
                         </a>
@@ -215,7 +151,6 @@
 
                 <article class="product-card" data-product-id="AET-009">
                     <div class="product-card__image-wrapper">
-                        <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
                         <a href="product-detail.html?id=AET-009">
                             <img src="../img/product-09.jpg" alt="Setdow Oversize Tee" class="product-card__img">
                         </a>
@@ -228,7 +163,6 @@
 
                 <article class="product-card" data-product-id="AET-004">
                     <div class="product-card__image-wrapper">
-                        <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
                         <a href="product-detail.html?id=AET-004">
                             <img src="../img/product-04.jpg" alt="Aethon Jacket" class="product-card__img">
                         </a>
@@ -241,7 +175,6 @@
 
                 <article class="product-card" data-product-id="AET-008">
                     <div class="product-card__image-wrapper">
-                        <button class="btn-wishlist" aria-label="Añadir a lista de deseos">♡</button>
                         <a href="product-detail.html?id=AET-008">
                             <img src="../img/product-08.jpg" alt="Aethon Cap" class="product-card__img">
                         </a>

@@ -7,37 +7,45 @@ const STORAGE_KEYS = Object.freeze({
 });
 
 const DEFAULT_CATEGORIES = [
-  { id: 'streetwear', name: 'Streetwear', description: 'Urban silhouettes for daily wear with premium detailing.' },
-  { id: 'utility', name: 'Utility', description: 'Technical pieces designed for function, durability and layered styling.' },
-  { id: 'outerwear', name: 'Outerwear', description: 'Protective layers with modern structure and sharp tailoring.' },
-  { id: 'tops', name: 'Tops', description: 'Statement tees, hoodies and shirts with refined comfort.' },
-  { id: 'bottoms', name: 'Bottoms', description: 'Cargo pants, skirts and trousers built for movement.' },
-  { id: 'accessories', name: 'Accesorios', description: 'Minimal hardware, hats and small goods for every look.' },
-  { id: 'footwear', name: 'Footwear', description: 'Performance-inspired sneakers and boots with bold silhouettes.' },
-  { id: 'limited', name: 'Limited Edition', description: 'Curated capsule pieces produced in small runs for collectors.' }
+  { id: 'tops', name: 'Tops', description: 'Hoodies, tees and shirts.' },
+  { id: 'bottoms', name: 'Bottoms', description: 'Cargo pants and trousers.' },
+  { id: 'accessories', name: 'Accessories', description: 'Hats and small goods.' }
 ];
 
 const DEFAULT_PRODUCTS = [
-  { id: 'AET-001', name: 'Chaos Zip Hoodie', categoryId: 'tops', category: 'Tops', price: 89.0, image: 'img/product-01.jpg', sku: 'AET-001', description: 'Oversized hoodie with matte zip closure and utility pocket details.' },
-  { id: 'AET-002', name: 'Aethon Cargo Jeans', categoryId: 'bottoms', category: 'Bottoms', price: 109.0, image: 'img/product-02.jpg', sku: 'AET-002', description: 'Rugged cargo denim with articulated knees and tonal hardware.' },
-  { id: 'AET-003', name: 'Shadow Oversize Tee', categoryId: 'tops', category: 'Tops', price: 49.0, image: 'img/product-03.jpg', sku: 'AET-003', description: 'Soft cotton tee with a dropped shoulder and minimal branding.' },
-  { id: 'AET-004', name: 'Aethon Jacket', categoryId: 'outerwear', category: 'Outerwear', price: 129.0, image: 'img/product-04.jpg', sku: 'AET-004', description: 'Lightweight technical jacket with weather-resistant finish.' },
-  { id: 'AET-005', name: 'Void Hoodie', categoryId: 'tops', category: 'Tops', price: 95.0, image: 'img/product-05.jpg', sku: 'AET-005', description: 'Clean pullover hoodie with structured hood and cargo-style pocket.' },
-  { id: 'AET-006', name: 'Abyss Tee', categoryId: 'tops', category: 'Tops', price: 45.0, image: 'img/product-06.jpg', sku: 'AET-006', description: 'Premium jersey tee with a bold back graphic and relaxed fit.' },
-  { id: 'AET-007', name: 'Phantom Cargo Pants', categoryId: 'bottoms', category: 'Bottoms', price: 119.0, image: 'img/product-07.jpg', sku: 'AET-007', description: 'Utility cargo pants with adjustable hem and concealed pocketing.' },
-  { id: 'AET-008', name: 'Aethon Cap', categoryId: 'accessories', category: 'Accesorios', price: 35.0, image: 'img/product-08.jpg', sku: 'AET-008', description: 'Structured cap with tonal embroidery and breathable mesh panels.' },
-  { id: 'AET-009', name: 'Setdow Oversize Tee', categoryId: 'tops', category: 'Tops', price: 49.0, image: 'img/product-09.jpg', sku: 'AET-009', description: 'Heavyweight cotton tee with elongated hem and dropped sleeves.' },
-  { id: 'AET-010', name: 'Terrain Utility Vest', categoryId: 'utility', category: 'Utility', price: 135.0, image: 'img/product-01.jpg', sku: 'AET-010', description: 'Multi-pocket utility vest built for layering and city exploration.' },
-  { id: 'AET-011', name: 'Nomad Track Pants', categoryId: 'bottoms', category: 'Bottoms', price: 84.0, image: 'img/product-02.jpg', sku: 'AET-011', description: 'Relaxed track pants with ripstop panels and tapered cuff.' },
-  { id: 'AET-012', name: 'Eclipse Anorak', categoryId: 'outerwear', category: 'Outerwear', price: 159.0, image: 'img/product-03.jpg', sku: 'AET-012', description: 'Half-zip anorak with hidden zip pockets and adjustable hood.' },
-  { id: 'AET-013', name: 'Helix Windbreaker', categoryId: 'outerwear', category: 'Outerwear', price: 112.0, image: 'img/product-04.jpg', sku: 'AET-013', description: 'Light windbreaker with reflective trims and mesh lining.' },
-  { id: 'AET-014', name: 'Strata Leather Belt', categoryId: 'accessories', category: 'Accesorios', price: 59.0, image: 'img/product-05.jpg', sku: 'AET-014', description: 'Minimal leather belt with brushed metal buckle and tonal finish.' },
-  { id: 'AET-015', name: 'Shadow Runner Sneakers', categoryId: 'footwear', category: 'Footwear', price: 139.0, image: 'img/product-06.jpg', sku: 'AET-015', description: 'Low-profile sneakers with grippy rubber sole and padded collar.' },
-  { id: 'AET-016', name: 'Pulse Knit Beanie', categoryId: 'accessories', category: 'Accesorios', price: 28.0, image: 'img/product-07.jpg', sku: 'AET-016', description: 'Soft knit beanie with high-stretch ribbed edge and tonal label.' },
-  { id: 'AET-017', name: 'Atlas Work Shirt', categoryId: 'utility', category: 'Utility', price: 92.0, image: 'img/product-08.jpg', sku: 'AET-017', description: 'Engineered work shirt with reinforced seams and chest utility pockets.' },
-  { id: 'AET-018', name: 'Flux Cargo Skirt', categoryId: 'bottoms', category: 'Bottoms', price: 88.0, image: 'img/product-09.jpg', sku: 'AET-018', description: 'Contemporary cargo skirt with asymmetric paneling and snap details.' },
-  { id: 'AET-019', name: 'Arc Mesh Tank', categoryId: 'tops', category: 'Tops', price: 39.0, image: 'img/product-01.jpg', sku: 'AET-019', description: 'Light mesh tank with contrast binding and breathable fit.' },
-  { id: 'AET-020', name: 'Titan Field Boots', categoryId: 'footwear', category: 'Footwear', price: 169.0, image: 'img/product-02.jpg', sku: 'AET-020', description: 'Rugged field boots with lug sole and waterproof finish.' }
+  {
+    id: 'AET-001',
+    name: 'Void Hoodie',
+    category: 'tops',
+    price: 95.0,
+    image: 'img/hoddie.png',
+    description: 'Clean pullover hoodie with structured hood and cargo-style pocket.',
+    stock: 15,
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['BLACK', 'VOID PURPLE', 'GREY']
+  },
+  {
+    id: 'AET-002',
+    name: 'Phantom Cargo Pants',
+    category: 'bottoms',
+    price: 119.0,
+    image: 'img/cargp.png',
+    description: 'Utility cargo pants with adjustable hem and concealed pocketing.',
+    stock: 10,
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['BLACK', 'VOID PURPLE', 'GREY']
+  },
+  {
+    id: 'AET-003',
+    name: 'Shadow Oversize Tee',
+    category: 'tops',
+    price: 49.0,
+    image: 'img/product-03.jpg',
+    description: 'Soft cotton tee with a dropped shoulder and minimal branding.',
+    stock: 20,
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['BLACK', 'VOID PURPLE', 'GREY']
+  }
 ];
 
 class StorageManager {
@@ -63,7 +71,33 @@ class StorageManager {
 
   saveProducts(products) {
     this._validateArray(products, 'products');
+    const normalized = products.map(product => this._normalizeProduct(product));
+    this._save(STORAGE_KEYS.products, normalized);
+  }
+
+  saveProduct(product) {
+    const normalized = this._normalizeProduct(product);
+    const products = this.getProducts();
+    const index = products.findIndex(item => item.id === normalized.id);
+
+    if (index === -1) {
+      products.push(normalized);
+    } else {
+      products[index] = normalized;
+    }
+
     this._save(STORAGE_KEYS.products, products);
+    return normalized;
+  }
+
+  deleteProduct(id) {
+    if (!id || typeof id !== 'string') {
+      throw new TypeError('id is required');
+    }
+
+    const products = this.getProducts().filter(item => item.id !== id);
+    this._save(STORAGE_KEYS.products, products);
+    return true;
   }
 
   getOrders() {
@@ -97,11 +131,19 @@ class StorageManager {
   }
 
   seedData({ force = false } = {}) {
-    const hasCategories = this.getCategories().length > 0;
-    const hasProducts = this.getProducts().length > 0;
+    const categories = this.getCategories();
+    const products = this.getProducts();
+    const hasCategories = categories.length > 0;
+    const hasProducts = products.length > 0;
+    const schemaIsValid = this._isProductSchemaValid(products);
 
-    if (!force && hasCategories && hasProducts) {
-      return { categories: this.getCategories(), products: this.getProducts() };
+    if (!force && hasCategories && hasProducts && schemaIsValid) {
+      return { categories, products };
+    }
+
+    // Reset storage completely so the new flat product schema is initialized cleanly.
+    if (typeof this.storage.clear === 'function') {
+      this.storage.clear();
     }
 
     this.saveCategories(DEFAULT_CATEGORIES);
@@ -131,6 +173,30 @@ class StorageManager {
     this.storage.setItem(key, JSON.stringify(value));
   }
 
+  _normalizeProduct(product) {
+    if (!product || typeof product !== 'object') {
+      throw new TypeError('product must be an object');
+    }
+
+    const normalized = {
+      id: String(product.id || product.codigo || '').trim(),
+      name: String(product.name || product.nombre || '').trim(),
+      category: String(product.category || product.id_categoria || '').trim(),
+      price: Number(product.price || product.precio || 0),
+      image: String(product.image || product.url_imagen || '').trim(),
+      description: String(product.description || product.descripcion || '').trim(),
+      stock: Number.isFinite(Number(product.stock)) ? Number(product.stock) : 0,
+      sizes: Array.isArray(product.sizes) ? product.sizes.map(String) : ['S', 'M', 'L', 'XL'],
+      colors: Array.isArray(product.colors) ? product.colors.map(String) : ['BLACK', 'VOID PURPLE', 'GREY']
+    };
+
+    if (!normalized.id) {
+      throw new Error('Product id is required');
+    }
+
+    return normalized;
+  }
+
   _parseJSON(value, fallback) {
     try {
       return JSON.parse(value);
@@ -138,6 +204,26 @@ class StorageManager {
       console.warn(`StorageManager failed to parse key ${value}`);
       return fallback;
     }
+  }
+
+  _isProductSchemaValid(products) {
+    if (!Array.isArray(products) || products.length === 0) {
+      return false;
+    }
+
+    return products.every(product => {
+      return (
+        product &&
+        typeof product.id === 'string' &&
+        typeof product.name === 'string' &&
+        typeof product.category === 'string' &&
+        typeof product.price === 'number' &&
+        typeof product.description === 'string' &&
+        typeof product.stock === 'number' &&
+        Array.isArray(product.sizes) &&
+        Array.isArray(product.colors)
+      );
+    });
   }
 
   _validateArray(value, name) {
@@ -149,4 +235,12 @@ class StorageManager {
 
 if (typeof window !== 'undefined') {
   window.StorageManager = StorageManager;
+  try {
+    const _sm = new StorageManager(window.localStorage);
+    _sm.saveCategories(DEFAULT_CATEGORIES);
+    _sm.saveProducts(DEFAULT_PRODUCTS);
+  } catch (err) {
+    // non-fatal: leave existing storage intact if initialization fails
+    console.warn('StorageManager: seed to localStorage skipped', err);
+  }
 }

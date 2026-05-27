@@ -31,17 +31,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#categorias" id="nav-categories">
+                        <a href="categories.html" id="nav-categories">
                             <span class="icon">▤</span> Categorías
                         </a>
                     </li>
                     <li>
-                        <a href="#productos" id="nav-products">
+                        <a href="products.html" id="nav-products">
                             <span class="icon">▣</span> Productos
                         </a>
                     </li>
                     <li>
-                        <a href="#pedidos" id="nav-orders">
+                        <a href="orders.html" id="nav-orders">
                             <span class="icon">📄</span> Pedidos
                         </a>
                     </li>
@@ -82,10 +82,6 @@
                 
                 <div class="admin-page-header">
                     <h1 class="page-title">RESUMEN DEL SISTEMA</h1>
-                    <div class="page-actions">
-                        <button id="btn-export-report" class="btn btn--outline btn--sm">EXPORTAR INFORME</button>
-                        <button id="btn-new-product" class="btn btn--primary btn--sm">+ NUEVO PRODUCTO</button>
-                    </div>
                 </div>
 
                 <section id="metrics-overview" class="metrics-grid">
@@ -93,36 +89,32 @@
                     <div class="metric-card">
                         <div class="metric-card__header">
                             <h3 class="metric-title">INGRESOS TOTALES</h3>
-                            <span class="metric-trend positive">↑ 12.5%</span>
                         </div>
-                        <p class="metric-value" id="metric-revenue-val">€ 45.230,00</p>
+                        <p class="metric-value"><span id="total-sales"></span></p>
                         <span class="metric-subtitle">Últimos 30 días</span>
                     </div>
 
                     <div class="metric-card">
                         <div class="metric-card__header">
-                            <h3 class="metric-title">PEDIDOS ACTIVOS</h3>
-                            <span class="metric-trend positive">↑ 4.2%</span>
+                            <h3 class="metric-title">PEDIDOS TOTALES</h3>
                         </div>
-                        <p class="metric-value" id="metric-orders-val">142</p>
-                        <span class="metric-subtitle">Pendientes de envío</span>
+                        <p class="metric-value"><span id="total-orders"></span></p>
+                        <span class="metric-subtitle">Pendientes / Enviados</span>
                     </div>
 
                     <div class="metric-card">
                         <div class="metric-card__header">
-                            <h3 class="metric-title">PRODUCTOS</h3>
-                            <span class="metric-trend neutral">- 0.0%</span>
+                            <h3 class="metric-title">PRODUCTOS EN CATÁLOGO</h3>
                         </div>
-                        <p class="metric-value" id="metric-products-val">84</p>
+                        <p class="metric-value"><span id="total-products"></span></p>
                         <span class="metric-subtitle">En catálogo</span>
                     </div>
 
                     <div class="metric-card">
                         <div class="metric-card__header">
                             <h3 class="metric-title">VISITAS ÚNICAS</h3>
-                            <span class="metric-trend negative">↓ 1.8%</span>
                         </div>
-                        <p class="metric-value" id="metric-visits-val">12.4K</p>
+                        <p class="metric-value"><span id="total-visits"></span></p>
                         <span class="metric-subtitle">Últimos 30 días</span>
                     </div>
 
@@ -147,138 +139,20 @@
                                         <th>ACCIÓN</th>
                                     </tr>
                                 </thead>
-                                <tbody id="recent-orders-tbody">
-                                    <tr data-order-id="ORD-0992">
-                                        <td><strong>#ORD-0992</strong></td>
-                                        <td>K. Vang</td>
-                                        <td>26 May, 2026</td>
-                                        <td><span class="status-badge status-pending">Pendiente</span></td>
-                                        <td>€ 218,00</td>
-                                        <td><button class="icon-btn btn-view-order" aria-label="Ver detalles">👁</button></td>
-                                    </tr>
-                                    <tr data-order-id="ORD-0991">
-                                        <td><strong>#ORD-0991</strong></td>
-                                        <td>M. Rossi</td>
-                                        <td>25 May, 2026</td>
-                                        <td><span class="status-badge status-shipped">Enviado</span></td>
-                                        <td>€ 95,00</td>
-                                        <td><button class="icon-btn btn-view-order" aria-label="Ver detalles">👁</button></td>
-                                    </tr>
-                                    <tr data-order-id="ORD-0990">
-                                        <td><strong>#ORD-0990</strong></td>
-                                        <td>J. Doe</td>
-                                        <td>25 May, 2026</td>
-                                        <td><span class="status-badge status-delivered">Entregado</span></td>
-                                        <td>€ 340,00</td>
-                                        <td><button class="icon-btn btn-view-order" aria-label="Ver detalles">👁</button></td>
-                                    </tr>
-                                </tbody>
+                                <tbody id="recent-orders-tbody"></tbody>
                             </table>
                         </div>
                     </section>
 
-                    <section id="top-products-section" class="admin-panel">
-                        <div class="admin-panel__header">
-                            <h2>INVENTARIO & TOP PRODUCTOS</h2>
-                            <button id="btn-view-inventory" class="icon-btn" aria-label="Ajustes">⚙</button>
-                        </div>
-                        <ul class="admin-list" id="top-products-list">
-                            <li class="admin-list__item" data-product-id="AET-002">
-                                <div class="item-visual">
-                                    <img src="../img/product-02-thumb1.jpg" alt="Cargo Jeans">
-                                </div>
-                                <div class="item-info">
-                                    <h4>AETHON CARGO JEANS</h4>
-                                    <p>Stock: <span class="text-warning">12 uds</span></p>
-                                </div>
-                                <div class="item-metrics">
-                                    <span>244 ventas</span>
-                                </div>
-                            </li>
-                            <li class="admin-list__item" data-product-id="AET-005">
-                                <div class="item-visual">
-                                    <img src="../img/product-05.jpg" alt="Void Hoodie">
-                                </div>
-                                <div class="item-info">
-                                    <h4>VOID HOODIE</h4>
-                                    <p>Stock: <span class="text-success">58 uds</span></p>
-                                </div>
-                                <div class="item-metrics">
-                                    <span>189 ventas</span>
-                                </div>
-                            </li>
-                            <li class="admin-list__item" data-product-id="AET-001">
-                                <div class="item-visual">
-                                    <img src="../img/product-01.jpg" alt="Chaos Zip">
-                                </div>
-                                <div class="item-info">
-                                    <h4>CHAOS ZIP HOODIE</h4>
-                                    <p>Stock: <span class="text-danger">0 uds</span></p>
-                                </div>
-                                <div class="item-metrics">
-                                    <span>156 ventas</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section id="categories-section" class="admin-panel">
-                        <div class="admin-panel__header">
-                            <h2>ESTADO DE CATEGORÍAS</h2>
-                        </div>
-                        <div class="categories-breakdown" id="categories-breakdown-container">
-                            
-                            <div class="category-stat">
-                                <div class="cat-stat-header">
-                                    <span>T-SHIRTS (34)</span>
-                                    <span>45%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 45%;"></div>
-                                </div>
-                            </div>
-
-                            <div class="category-stat">
-                                <div class="cat-stat-header">
-                                    <span>HOODIES (28)</span>
-                                    <span>30%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 30%;"></div>
-                                </div>
-                            </div>
-
-                            <div class="category-stat">
-                                <div class="cat-stat-header">
-                                    <span>CARGO PANTS (22)</span>
-                                    <span>15%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 15%;"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="category-stat">
-                                <div class="cat-stat-header">
-                                    <span>ACCESORIOS (10)</span>
-                                    <span>10%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 10%;"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="panel-footer mt-4">
-                            <button id="btn-manage-categories" class="btn btn--outline btn--full-width">GESTIONAR CATEGORÍAS</button>
-                        </div>
-                    </section>
+                    <!-- Other admin panels removed: only recent orders and metrics remain for JS-driven dashboard -->
 
                 </div>
 
             </main>
         </div>
     </div>
+
+    <!-- Product modal removed to keep dashboard minimal; product management moved to separate admin page -->
 
     <script src="../js/storage.js"></script>
     <script type="module" src="../js/auth.js"></script>
@@ -287,6 +161,7 @@
     <script src="../js/dashboard.js"></script>
     <script src="../js/products.js"></script>
     <script src="../js/categories.js"></script>
+    <script src="../js/admin-products.js"></script>
     <script src="../js/orders.js"></script>
 
 </body>

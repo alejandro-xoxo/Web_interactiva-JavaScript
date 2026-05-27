@@ -70,7 +70,7 @@
 
 .cart-item:hover {
     border-color: var(--purple-400);
-    box-shadow: 0 10px 30px rgba(101, 37, 107, 0.15);
+    box-shadow: none;
 }
 
 .cart-item__image {
@@ -120,7 +120,7 @@
 
 .cart-item__variant {
     font-size: 0.85rem;
-    color: var(--purple-400);
+    color: #888;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin: 0;
@@ -423,7 +423,7 @@
 }
 
 #btn-process-checkout:hover {
-    box-shadow: 0 0 25px rgba(101, 37, 107, 0.4);
+    box-shadow: none;
     transform: translateY(-2px);
     background: linear-gradient(90deg, var(--purple-400), var(--purple-300));
 }

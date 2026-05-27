@@ -9,6 +9,7 @@
     
     <link rel="stylesheet" href="../css/utils.css">
     <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
 
@@ -63,76 +64,9 @@
                     
                     <h2 class="section-title">TU CARRITO</h2>
                     
-                    <div id="cart-items-container" class="cart-items-list">
-                        
-                        <article class="cart-item" data-cart-id="item-001" data-product-id="AET-002">
-                            <div class="cart-item__image">
-                                <a href="product-detail.html?id=AET-002">
-                                    <img src="../img/product-02-thumb1.jpg" alt="AETHON Cargo Jeans">
-                                </a>
-                            </div>
-                            
-                            <div class="cart-item__details">
-                                <h3 class="cart-item__name">
-                                    <a href="product-detail.html?id=AET-002">AETHON CARGO JEANS</a>
-                                </h3>
-                                <p class="cart-item__variant">Talla: M | Color: Negro</p>
-                                <p class="cart-item__unit-price" data-price="109.00">€109,00</p>
-                            </div>
-
-                            <div class="cart-item__quantity">
-                                <div class="qty-selector">
-                                    <button class="btn-qty-minus" aria-label="Disminuir cantidad">-</button>
-                                    <input type="number" class="input-qty" value="1" min="1" max="10" aria-label="Cantidad">
-                                    <button class="btn-qty-plus" aria-label="Aumentar cantidad">+</button>
-                                </div>
-                            </div>
-
-                            <div class="cart-item__subtotal">
-                                <span class="item-subtotal-value">€109,00</span>
-                            </div>
-
-                            <div class="cart-item__actions">
-                                <button class="btn-remove-item" aria-label="Eliminar producto">✕</button>
-                            </div>
-                        </article>
-
-                        <article class="cart-item" data-cart-id="item-002" data-product-id="AET-005">
-                            <div class="cart-item__image">
-                                <a href="product-detail.html?id=AET-005">
-                                    <img src="../img/product-05.jpg" alt="Void Hoodie">
-                                </a>
-                            </div>
-                            
-                            <div class="cart-item__details">
-                                <h3 class="cart-item__name">
-                                    <a href="product-detail.html?id=AET-005">VOID HOODIE</a>
-                                </h3>
-                                <p class="cart-item__variant">Talla: L | Color: Void Pattern</p>
-                                <p class="cart-item__unit-price" data-price="95.00">€95,00</p>
-                            </div>
-
-                            <div class="cart-item__quantity">
-                                <div class="qty-selector">
-                                    <button class="btn-qty-minus" aria-label="Disminuir cantidad">-</button>
-                                    <input type="number" class="input-qty" value="1" min="1" max="10" aria-label="Cantidad">
-                                    <button class="btn-qty-plus" aria-label="Aumentar cantidad">+</button>
-                                </div>
-                            </div>
-
-                            <div class="cart-item__subtotal">
-                                <span class="item-subtotal-value">€95,00</span>
-                            </div>
-
-                            <div class="cart-item__actions">
-                                <button class="btn-remove-item" aria-label="Eliminar producto">✕</button>
-                            </div>
-                        </article>
-
-                    </div>
+                    <div id="cart-items-container" class="cart-items-list"></div>
 
                     <div id="empty-cart-message" class="empty-cart hidden">
-                        <p>Tu carrito está vacío.</p>
                         <a href="products.html" class="btn btn--outline">EXPLORAR COLECCIÓN</a>
                     </div>
 

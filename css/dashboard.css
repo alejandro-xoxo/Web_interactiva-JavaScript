@@ -235,7 +235,7 @@
     width: 8px;
     height: 8px;
     background: var(--purple-400);
-    border-radius: 50%;
+    border-radius: 0px;
 }
 
 .system-time {
@@ -312,7 +312,7 @@
 .metric-card:hover {
     transform: translateY(-5px);
     border-color: var(--purple-400);
-    box-shadow: 0 10px 30px rgba(101, 37, 107, 0.15);
+    box-shadow: none;
 }
 
 .metric-card:hover::after {

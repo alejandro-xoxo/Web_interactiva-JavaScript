@@ -88,21 +88,11 @@ function login(email, password) {
       createdAt: new Date().toISOString()
     };
     storage.saveSession(session);
-    // UI feedback
-    _showMessage('login-error', false);
-    _showMessage('login-success', true);
-
-    // Redirect shortly to dashboard
-    setTimeout(() => {
-      location.assign(_resolvePath('dashboard.html'));
-    }, 700);
-
+    location.assign(_resolvePath('dashboard.html'));
     return session;
   }
 
-  // Failure
-  _showMessage('login-success', false);
-  _showMessage('login-error', true);
+  alert('Email o contraseña incorrectos');
   return null;
 }
 
